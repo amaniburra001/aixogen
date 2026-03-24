@@ -4,11 +4,14 @@
   <title>Aixogen - AI Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #ffffff;
+      background: #f5f7fa;
       color: #111;
     }
 
@@ -30,7 +33,7 @@
       align-items: center;
       font-size: 26px;
       font-weight: bold;
-      color: #2563eb;
+      color: #111;
     }
 
     .logo img {
@@ -74,7 +77,14 @@
     }
 
     .dropdown-item {
+      display: flex;
+      gap: 10px;
       margin-bottom: 12px;
+    }
+
+    .dropdown-item i {
+      color: #2563eb;
+      margin-top: 5px;
     }
 
     .dropdown-item strong {
@@ -101,14 +111,14 @@
     .hero-image {
       position: relative;
       height: 500px;
-      background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1677442136019-21780ecad995') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .hero-overlay {
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       padding: 40px;
       border-radius: 10px;
       text-align: center;
@@ -140,6 +150,14 @@
     /* SECTIONS */
     .section {
       padding: 80px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .cards {
@@ -168,7 +186,6 @@
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <div class="logo">
     <img src="aixogen_logo.png">
@@ -183,38 +200,59 @@
       <div class="dropdown-content">
 
         <div class="dropdown-item">
-          <strong>Healthcare</strong>
-          <p>AI for patient workflows, diagnostics, and hospital automation.</p>
+          <i class="fas fa-hospital"></i>
+          <div>
+            <strong>Healthcare</strong>
+            <p>AI for patient workflows and diagnostics.</p>
+          </div>
         </div>
 
         <div class="dropdown-item">
-          <strong>Real Estate</strong>
-          <p>Automate lead generation, CRM workflows, and property insights.</p>
+          <i class="fas fa-building"></i>
+          <div>
+            <strong>Real Estate</strong>
+            <p>Automate leads and property insights.</p>
+          </div>
         </div>
 
         <div class="dropdown-item">
-          <strong>HR Automation</strong>
-          <p>AI-driven hiring, onboarding, and employee workflows.</p>
+          <i class="fas fa-users"></i>
+          <div>
+            <strong>HR</strong>
+            <p>AI hiring and employee automation.</p>
+          </div>
         </div>
 
         <div class="dropdown-item">
-          <strong>IT Automation</strong>
-          <p>Automate deployments, monitoring, and IT operations.</p>
+          <i class="fas fa-server"></i>
+          <div>
+            <strong>IT</strong>
+            <p>Automate deployments and monitoring.</p>
+          </div>
         </div>
 
         <div class="dropdown-item">
-          <strong>Customer Support</strong>
-          <p>24/7 AI chatbots and automated ticket resolution.</p>
+          <i class="fas fa-headset"></i>
+          <div>
+            <strong>Customer Support</strong>
+            <p>AI chatbots and ticket automation.</p>
+          </div>
         </div>
 
         <div class="dropdown-item">
-          <strong>Education</strong>
-          <p>AI learning systems, tutoring, and analytics.</p>
+          <i class="fas fa-graduation-cap"></i>
+          <div>
+            <strong>Education</strong>
+            <p>AI learning and analytics systems.</p>
+          </div>
         </div>
 
         <div class="dropdown-item">
-          <strong>Finance</strong>
-          <p>Fraud detection, reporting, and financial automation.</p>
+          <i class="fas fa-chart-line"></i>
+          <div>
+            <strong>Finance</strong>
+            <p>Fraud detection and reporting automation.</p>
+          </div>
         </div>
 
       </div>
@@ -232,12 +270,8 @@
 <section class="hero-image">
   <div class="hero-overlay">
     <h1>AI Automation for Modern Businesses</h1>
-    <p>
-      We help companies automate operations using AI — saving time,
-      reducing cost, and increasing efficiency.
-    </p>
+    <p>We help companies automate operations using AI.</p>
   </div>
-
   <div class="scroll-down">↓</div>
 </section>
 
@@ -245,22 +279,9 @@
 <section class="section" id="products">
   <h2>Products</h2>
   <div class="cards">
-
-    <div class="card">
-      <h3>AI Automation Platform</h3>
-      <p>End-to-end workflow automation platform for businesses.</p>
-    </div>
-
-    <div class="card">
-      <h3>Chatbot Builder</h3>
-      <p>Create intelligent AI chatbots for customer interaction.</p>
-    </div>
-
-    <div class="card">
-      <h3>Data Intelligence Engine</h3>
-      <p>Analyze business data using AI for better decisions.</p>
-    </div>
-
+    <div class="card"><h3>AI Platform</h3><p>End-to-end automation platform.</p></div>
+    <div class="card"><h3>Chatbot Builder</h3><p>Create AI chatbots easily.</p></div>
+    <div class="card"><h3>Data Engine</h3><p>AI insights from business data.</p></div>
   </div>
 </section>
 
@@ -268,49 +289,41 @@
 <section class="section" id="solutions">
   <h2>Solutions</h2>
   <div class="cards">
-
-    <div class="card">
-      <h3>Customer Experience</h3>
-      <p>Improve engagement using AI personalization.</p>
-    </div>
-
-    <div class="card">
-      <h3>Sales Automation</h3>
-      <p>Automate lead generation and follow-ups.</p>
-    </div>
-
-    <div class="card">
-      <h3>Operational Efficiency</h3>
-      <p>Reduce manual work with AI automation.</p>
-    </div>
-
-    <div class="card">
-      <h3>Decision Intelligence</h3>
-      <p>Make smarter decisions using AI insights.</p>
-    </div>
-
+    <div class="card"><h3>Customer Experience</h3><p>Improve engagement using AI.</p></div>
+    <div class="card"><h3>Sales Automation</h3><p>Automate leads and follow-ups.</p></div>
+    <div class="card"><h3>Operations</h3><p>Reduce manual work.</p></div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="section" id="about">
   <h2>About Aixogen</h2>
-  <p>
-    Aixogen is an AI automation company helping businesses transform operations
-    using intelligent systems and modern technology.
-  </p>
+  <p>Aixogen helps businesses scale using AI automation.</p>
 </section>
 
 <!-- DEMO -->
 <section class="section" id="demo">
   <h2>Request a Demo</h2>
-  <p>Schedule a demo and see how AI can transform your business.</p>
-  <a href="https://forms.gle/YOURFORM" target="_blank" class="btn">Book Demo</a>
+  <a href="#" class="btn">Book Demo</a>
 </section>
 
 <footer>
   © 2026 Aixogen. All rights reserved.
 </footer>
+
+<!-- SCROLL ANIMATION SCRIPT -->
+<script>
+  const sections = document.querySelectorAll('.section');
+
+  window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        section.classList.add('show');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
