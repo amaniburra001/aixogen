@@ -10,6 +10,55 @@
       font-family: 'Segoe UI', sans-serif;
       background: #ffffff;
       color: #111;
+
+      /* LOGO */
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* HERO BOX */
+.hero-box {
+  background: #f1f5f9;
+  padding: 60px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* ANIMATED IMAGE */
+.hero img {
+  width: 420px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
     }
 
     /* NAVBAR */
@@ -159,7 +208,10 @@
 <body>
 
 <nav>
-  <div class="logo">AIXOGEN</div>
+  <div class="logo">
+  <img src="your-logo.png" style="height:35px; vertical-align:middle; margin-right:10px;">
+  <span style="color:#2563eb;">AIXOGEN</span>
+</div>
 
   <div class="menu">
 
@@ -180,12 +232,22 @@
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Transform Your Business with AI Automation</h1>
-    <p>We design intelligent automation systems that save time, reduce costs, and improve efficiency.</p>
-    <a href="#demo" class="btn">Get Started</a>
+  <section class="hero-box">
+  <div class="hero">
+
+    <div class="hero-text">
+      <h1>AI Automation for Modern Businesses</h1>
+      <p>
+        We help companies automate operations using AI — saving time,
+        reducing cost, and increasing efficiency.
+      </p>
+      <a href="#demo" class="btn">Request a Demo</a>
+    </div>
+
+    <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif">
+
   </div>
+</section>
 
   <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 </section>
