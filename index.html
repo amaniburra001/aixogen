@@ -131,6 +131,9 @@
          flex-direction: column;
          justify-content: flex-start;
          }
+         .card-content a {
+  margin-top: auto;
+}
          .card-content h3 {
          margin-bottom: 6px;
          font-size: 18px;
@@ -193,9 +196,7 @@
   object-fit: cover;
   border-radius: 12px;
 }
-.feature-content {
-  flex: 1;
-}
+
 
 .feature-content h3 {
   font-size: 26px;
@@ -264,14 +265,7 @@
          .feature-content {
          flex: 1;
          }
-         .feature-content h3 {
-         margin-bottom: 10px;
-         font-size: 22px;
-         }
-         .feature-content p {
-         line-height: 1.6;
-         color: #cbd5e1;
-         }
+      
          /* READ MORE */
          .full-text {
          display: none;
@@ -578,29 +572,6 @@
       <script>
          const slider = document.getElementById('slider');
          const solutionSlider = document.getElementById('solution-slider');
-         let productIndex = 0;
-
-function moveProduct(direction){
-  const track = document.getElementById('product-track');
-  const totalCards = document.querySelectorAll('#product-track .feature-card').length;
-
-  productIndex += direction;
-
-  if(productIndex < 0) productIndex = 0;
-  if(productIndex >= totalCards) productIndex = totalCards - 1;
-
-  track.style.transform = `translateX(-${productIndex * 100}%)`;
-}
-         
-       function goToProduct(index){
-         scrollToSection('products');
-
-         setTimeout(() => {
-            productIndex = index;
-            document.getElementById('product-track')
-            .style.transform = `translateX(-${index * 100}%)`;
-             }, 400);
-}
          
          function scrollSolution(direction){
            const cardWidth = document.querySelector('#solution-slider .card').offsetWidth + 20;
@@ -644,17 +615,6 @@ function moveProduct(direction){
            document.getElementById(id).scrollIntoView({behavior:'smooth'});
          }
          
-         function goToProduct(index){
-           scrollToSection('products');
-         
-           setTimeout(() => {
-             const cardWidth = document.querySelector('#product-slider .card').offsetWidth + 20;
-             document.getElementById('product-slider').scrollTo({
-               left: index * cardWidth,
-               behavior: 'smooth'
-             });
-           }, 400);
-         }
          
          function goToSolution(index){
            scrollToSection('solutions');
