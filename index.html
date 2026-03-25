@@ -128,15 +128,10 @@
       display: none;
     }
 
-  
     .card {
   min-width: 300px;
   max-width: 300px;
-  height: 360px; /* FIXED HEIGHT */
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  height: 380px; /* slightly bigger */
   display: flex;
   flex-direction: column;
 }
@@ -154,9 +149,10 @@
 
     .card-content {
   padding: 15px;
-  flex: 1; /* fills remaining space */
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
   .card-content h3 {
@@ -170,10 +166,8 @@
   color: #666;
   line-height: 1.5;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 9; /* LIMIT LINES */
-  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
     /* ARROWS */
