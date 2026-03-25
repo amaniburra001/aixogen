@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- ICONS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
       <style>
          body {
          margin: 0;
@@ -253,7 +254,11 @@
 .full-text {
   display: none;
 }
-
+@media(max-width:768px){
+  .demo-container {
+    flex-direction: column;
+  }
+}
 /* ARROWS */
 .arrow {
   position: absolute;
@@ -439,6 +444,51 @@
   }
 }
 
+   .demo-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.demo-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.demo-form input,
+.demo-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.demo-form button {
+  background: #0f172a;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.demo-form button:hover {
+  background: #1e293b;
+}
+
+.contact-info {
+  flex: 1;
+  background: #e2e8f0;
+  padding: 20px;
+  border-radius: 10px;
+}
        
          /* ARROWS */
          .arrow {
@@ -487,7 +537,24 @@
   font-size: 26px;
   cursor: pointer;
 }
+#about {
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.8;
+  color: #334155;
+}
 
+#about h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+#successMessage {
+  background: #dcfce7;
+  color: #166534;
+  padding: 10px;
+  border-radius: 6px;
+}
 /* MOBILE MENU */
 .mobile-menu {
   display: none;
@@ -836,15 +903,96 @@ AIXOGEN implements workflow automation solutions by analyzing your existing busi
 
   </div>
 </section>
+
+   <!-- ABOUT -->
+<section class="section" id="about">
+  <h2>About Us</h2>
+
+  <p>
+    AIXOGEN is an AI automation company focused on enabling organizations to transform their operations through intelligent, scalable solutions. The company specializes in designing and implementing AI-driven systems that streamline workflows, enhance decision-making, and improve overall operational efficiency.
+  </p>
+
+  <p>
+    With a strong emphasis on practical implementation, AIXOGEN integrates advanced technologies such as machine learning, natural language processing, and predictive analytics into existing business environments. This approach ensures seamless adoption while maximizing the value of automation across departments including customer support, finance, human resources, and IT operations.
+  </p>
+
+  <p>
+    The solutions are designed to address real-world business challenges by reducing manual effort, minimizing errors, and accelerating process execution. By combining domain expertise with cutting-edge AI capabilities, AIXOGEN enables organizations to achieve higher productivity, improved accuracy, and sustainable growth.
+  </p>
+
+  <p>
+    With a commitment to innovation and continuous improvement, AIXOGEN aims to be a trusted partner in driving digital transformation and building future-ready enterprises.
+  </p>
+</section>
    
       <!-- DEMO -->
-      <section class="section" id="demo">
-         <h2>Request Demo</h2>
-      </section>
+     <section class="section" id="demo">
+  <h2 style="text-align:center;">Request a Demo</h2>
+
+  <div class="demo-container">
+
+    <!-- LEFT: FORM -->
+   <form class="demo-form" id="demoForm" action="https://formspree.io/f/mzdkbboj" method="POST">
+      <p id="successMessage" style="display:none; color:green; margin-top:10px;">
+  Thank you! Your request has been submitted successfully. Our team will contact you shortly.
+</p>
+
+      <div class="form-row">
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
+      </div>
+
+      <input type="email" name="email" placeholder="Email Address" required>
+
+      <div class="form-row">
+        <input type="tel" id="phone" name="phone" required>
+         <p id="phoneError" style="color:red; display:none; font-size:14px;">
+  Please enter a valid country code and mobile number.
+</p>
+      </div>
+
+      <input type="text" name="country" placeholder="Country" required>
+
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+
+      <button type="submit">Submit Request</button>
+
+    </form>
+
+    <!-- RIGHT: CONTACT INFO -->
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+
+      <p><strong>For any queries:</strong></p>
+
+      <p>Email: support@aixogen.com</p>
+      <p>Mobile: +91 XXXXX XXXXX</p>
+
+      <p style="margin-top:20px;">
+        Our team will get back to you within 24 hours to assist with your requirements.
+      </p>
+    </div>
+
+  </div>
+</section>
       <footer>
          © 2026 Aixogen
       </footer>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
       <script>
+const phoneInput = document.querySelector("#phone");
+
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "auto",
+  geoIpLookup: function(callback) {
+    fetch("https://ipapi.co/json")
+      .then(res => res.json())
+      .then(data => callback(data.country_code))
+      .catch(() => callback("US"));
+  },
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+});
+         
          const slider = document.getElementById('slider');
          const solutionSlider = document.getElementById('solution-slider');
          document.querySelectorAll('.feature-content').forEach(content => {
@@ -919,6 +1067,59 @@ document.addEventListener("click", function(event) {
 
   window.scrollTo({top: y, behavior: 'smooth'});
 }
+const form = document.getElementById("demoForm");
+const successMessage = document.getElementById("successMessage");
+if (!iti.isValidNumber()) {
+  phoneError.style.display = "block";
+  return;
+} else {
+  phoneError.style.display = "none";
+}
+
+phoneInput.addEventListener("input", () => {
+  phoneError.style.display = "none";
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault(); // stop default redirect
+
+ const countryCode = countryCodeInput.value.trim();
+  const mobile = mobileInput.value.trim();
+
+  // Validation rules
+  const countryCodeValid = /^\+\d{1,4}$/.test(countryCode);
+  const mobileValid = /^\d{7,15}$/.test(mobile);
+
+  if(!countryCodeValid || !mobileValid){
+    phoneError.style.display = "block";
+    return; // ❌ STOP FORM
+  } else {
+    phoneError.style.display = "none";
+  }
+
+  // Continue form submission
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if(response.ok){
+      form.reset();
+      successMessage.style.display = "block";
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  })
+  .catch(error => {
+    alert("Error submitting form.");
+  });
+});
+ 
       </script>
    </body>
 </html>
