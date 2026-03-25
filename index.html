@@ -148,9 +148,10 @@
 }
 
 /* CAROUSEL */
-.carousel {
+  .carousel {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  overflow: hidden; /* THIS FIXES MULTIPLE CARDS */
   display: flex;
   justify-content: center;
 }
@@ -158,17 +159,18 @@
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 /* ONE CARD PER VIEW */
 .feature-card {
-  min-width: 70vw;
-  max-width: 70vw;
-  margin: 0 20px;
+  min-width: 100%;   /* FULL WIDTH = ONLY 1 CARD */
+  max-width: 100%;
+  flex: 0 0 100%;    /* CRITICAL FIX */
 
   display: flex;
   gap: 30px;
-  padding: 30px;
+  padding: 40px;
 
   background: #1e293b;
   color: white;
@@ -177,6 +179,10 @@
   align-items: center;
 }
 
+.feature-wrapper {
+  max-width: 1000px;
+}
+         
 /* IMAGE LEFT */
 .feature-image img {
   width: 250px;
@@ -431,6 +437,8 @@
          </div>
       </section>
       <!-- PRODUCTS -->
+<div class="feature-wrapper">
+  <div class="carousel-track" id="product-track">
 <section class="product-section" id="products">
   <h2 style="padding-left:20px;">Our Products</h2>
 
@@ -537,18 +545,16 @@
          const solutionSlider = document.getElementById('solution-slider');
          let productIndex = 0;
 
-         function moveProduct(direction){
-         const track = document.getElementById('product-track');
-         const cards = document.querySelectorAll('#product-track .feature-card');
+function moveProduct(direction){
+  const track = document.getElementById('product-track');
+  const totalCards = document.querySelectorAll('#product-track .feature-card').length;
 
   productIndex += direction;
 
   if(productIndex < 0) productIndex = 0;
-  if(productIndex >= cards.length) productIndex = cards.length - 1;
+  if(productIndex >= totalCards) productIndex = totalCards - 1;
 
-  const cardWidth = cards[0].offsetWidth + 40;
-
-  track.style.transform = `translateX(-${productIndex * cardWidth}px)`;
+  track.style.transform = `translateX(-${productIndex * 100}%)`;
 }
          
          function scrollProduct(direction){
