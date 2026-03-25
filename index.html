@@ -170,6 +170,78 @@
   text-overflow: ellipsis;
 }
 
+    .feature-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.feature-card {
+  width: 70%;
+  min-height: 260px;
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+
+  /* PROFESSIONAL COLOR */
+  background: #1e293b; /* dark blue-grey */
+  color: white;
+
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  align-items: center;
+}
+
+/* IMAGE */
+.feature-image img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* CONTENT */
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.feature-content p {
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* READ MORE */
+.full-text {
+  display: none;
+}
+
+button {
+  margin-top: 12px;
+  background: white;
+  color: #1e293b;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media(max-width:768px){
+  .feature-card {
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 200px;
+  }
+}
     /* ARROWS */
     .arrow {
   position: absolute;
@@ -317,13 +389,32 @@
 
     <div class="slider" id="product-slider">
 
-      <div class="card">
-        <img src="platform.png">
-        <div class="card-content">
-          <h3>AI Platform</h3>
-          <p>End-to-end AI platform to design, deploy, and scale intelligent automation workflows across business operations.</p>
-        </div>
-      </div>
+      <div class="feature-wrapper">
+
+  <div class="feature-card">
+
+    <div class="feature-image">
+      <img src="platform.png">
+    </div>
+
+    <div class="feature-content">
+      <h3>AI Automation Platform</h3>
+
+      <p class="short-text">
+        A centralized platform to design, deploy, and manage AI workflows, enabling businesses to automate operations efficiently.
+      </p>
+
+      <p class="full-text">
+        Our AI automation platform empowers organizations to streamline complex workflows through intelligent automation. It integrates seamlessly with existing systems, enables real-time monitoring, and provides scalable infrastructure to support business growth. By reducing manual intervention and enhancing operational visibility, businesses can improve efficiency, accelerate decision-making, and drive digital transformation.
+      </p>
+
+      <button onclick="toggleText(this)">Read More</button>
+    </div>
+
+  </div>
+
+</div>
+
 
       <div class="card">
         <img src="chatbot.png">
@@ -431,7 +522,22 @@ function scrollSolution(direction){
     behavior: 'smooth'
   });
 }
+  
+function toggleText(btn){
+  const content = btn.parentElement;
+  const shortText = content.querySelector('.short-text');
+  const fullText = content.querySelector('.full-text');
 
+  if(fullText.style.display === "none" || fullText.style.display === ""){
+    fullText.style.display = "block";
+    shortText.style.display = "none";
+    btn.innerText = "Read Less";
+  } else {
+    fullText.style.display = "none";
+    shortText.style.display = "block";
+    btn.innerText = "Read More";
+  }
+}
 function scrollSlider(direction) {
   slider.scrollBy({
     left: direction * 320,
