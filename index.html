@@ -172,16 +172,34 @@
 
     /* ARROWS */
     .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(37, 99, 235, 0.6); /* transparent */
+  backdrop-filter: blur(6px); /* premium effect */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: rgba(37, 99, 235, 0.9);
+}
+    .slider {
+  position: relative;
+  z-index: 1;
+}
+
+.arrow {
+  z-index: 20;
+}
+ .arrow {
+  width: 40px;
+  height: 40px;
+}
 
     .left { left: 10px; }
     .right { right: 10px; }
@@ -218,6 +236,7 @@
   <div class="menu">
 
     <div class="dropdown">
+      <a onclick="scrollToSection('services')">Services</a>
       <a href="#">Services</a>
       <div class="dropdown-content">
         <a onclick="goTo(0)">Healthcare</a>
@@ -226,9 +245,27 @@
         <a onclick="goTo(3)">IT</a>
         <a onclick="goTo(4)">Customer Support</a>
         <a onclick="goTo(5)">Finance</a>
-        <a onclick="goTo(5)">Education</a>
+        <a onclick="goTo(6)">Education</a>
       </div>
     </div>
+
+    <div class="dropdown">
+  <a onclick="scrollToSection('products')">Products</a>
+  <div class="dropdown-content">
+    <a onclick="goToProduct(0)">AI Platform</a>
+    <a onclick="goToProduct(1)">Chatbot</a>
+    <a onclick="goToProduct(2)">Predictive Analytics</a>
+  </div>
+</div>
+
+<div class="dropdown">
+  <a onclick="scrollToSection('solutions')">Solutions</a>
+  <div class="dropdown-content">
+    <a onclick="goToSolution(0)">Customer Support Automation</a>
+    <a onclick="goToSolution(1)">Sales Automation</a>
+    <a onclick="goToSolution(2)">HR Automation</a>
+  </div>
+</div>
 
     <a href="#products">Products</a>
     <a href="#solutions">Solutions</a>
@@ -305,6 +342,35 @@ function goTo(index){
     behavior: 'smooth'
   });
 }
+
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function goToProduct(index){
+  scrollToSection('products');
+
+  setTimeout(() => {
+    const cardWidth = document.querySelector('#product-slider .card').offsetWidth + 20;
+    document.getElementById('product-slider').scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth'
+    });
+  }, 400);
+}
+
+function goToSolution(index){
+  scrollToSection('solutions');
+
+  setTimeout(() => {
+    const cardWidth = document.querySelector('#solution-slider .card').offsetWidth + 20;
+    document.getElementById('solution-slider').scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth'
+    });
+  }, 400);
+}
+
 </script>
 
 </body>
