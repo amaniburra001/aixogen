@@ -23,7 +23,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
+      padding: 20px 40px;
       border-bottom: 1px solid #eee;
       z-index: 1000;
     }
@@ -31,133 +31,62 @@
     .logo {
       display: flex;
       align-items: center;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: bold;
       color: #111;
     }
 
     .logo img {
-      height: 40px;
+      height: 35px;
       margin-right: 10px;
     }
 
     .menu {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .menu a {
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       color: #111;
       font-size: 14px;
     }
 
-    .menu a:hover {
-      color: #2563eb;
-    }
-
-    /* DROPDOWN */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: white;
-      width: 320px;
-      padding: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-item {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .dropdown-item i {
-      color: #2563eb;
-      margin-top: 5px;
-    }
-
-    .dropdown-item strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .dropdown-item p {
-      font-size: 12px;
-      color: #555;
-    }
-
-    /* BUTTON */
     .btn {
-      background: linear-gradient(45deg, #2563eb, #3b82f6);
+      background: #2563eb;
       color: white;
-      padding: 10px 20px;
+      padding: 8px 16px;
       border-radius: 6px;
       text-decoration: none;
-      margin-left: 20px;
+      margin-left: 10px;
     }
 
     /* HERO */
     .hero-image {
-      position: relative;
-      height: 500px;
-      background: url('https://images.unsplash.com/photo-1677442136019-21780ecad995') center/cover no-repeat;
+      height: 450px;
+      background: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .hero-overlay {
-      background: rgba(0,0,0,0.6);
-      padding: 40px;
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
       border-radius: 10px;
       text-align: center;
       color: white;
     }
 
     .hero-overlay h1 {
-      font-size: 42px;
+      font-size: 36px;
     }
 
-    .hero-overlay p {
-      font-size: 18px;
-    }
-
-    /* SCROLL DOWN */
-    .scroll-down {
-      position: absolute;
-      bottom: 20px;
-      font-size: 30px;
-      color: white;
-      animation: bounce 1.5s infinite;
-    }
-
-    @keyframes bounce {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-
-    /* SECTIONS */
+    /* SECTION */
     .section {
-      padding: 80px;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.6s ease;
-    }
-
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
+      padding: 60px 40px;
     }
 
     .cards {
@@ -170,22 +99,65 @@
       flex: 1;
       min-width: 250px;
       background: white;
-      padding: 25px;
-      border-radius: 12px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* FORM */
+    .form-container {
+      max-width: 500px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 20px;
       background: #111;
       color: white;
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-overlay h1 {
+        font-size: 24px;
+      }
+
+      .cards {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <div class="logo">
     <img src="aixogen_logo.png">
@@ -193,75 +165,9 @@
   </div>
 
   <div class="menu">
-
-    <div class="dropdown">
-      <a href="#">Services</a>
-
-      <div class="dropdown-content">
-
-        <div class="dropdown-item">
-          <i class="fas fa-hospital"></i>
-          <div>
-            <strong>Healthcare</strong>
-            <p>AI for patient workflows and diagnostics.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-building"></i>
-          <div>
-            <strong>Real Estate</strong>
-            <p>Automate leads and property insights.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-users"></i>
-          <div>
-            <strong>HR</strong>
-            <p>AI hiring and employee automation.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-server"></i>
-          <div>
-            <strong>IT</strong>
-            <p>Automate deployments and monitoring.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-headset"></i>
-          <div>
-            <strong>Customer Support</strong>
-            <p>AI chatbots and ticket automation.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-graduation-cap"></i>
-          <div>
-            <strong>Education</strong>
-            <p>AI learning and analytics systems.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-chart-line"></i>
-          <div>
-            <strong>Finance</strong>
-            <p>Fraud detection and reporting automation.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
     <a href="#products">Products</a>
     <a href="#solutions">Solutions</a>
     <a href="#about">About</a>
-
     <a href="#demo" class="btn">Request Demo</a>
   </div>
 </nav>
@@ -272,16 +178,15 @@
     <h1>AI Automation for Modern Businesses</h1>
     <p>We help companies automate operations using AI.</p>
   </div>
-  <div class="scroll-down">↓</div>
 </section>
 
 <!-- PRODUCTS -->
 <section class="section" id="products">
   <h2>Products</h2>
   <div class="cards">
-    <div class="card"><h3>AI Platform</h3><p>End-to-end automation platform.</p></div>
-    <div class="card"><h3>Chatbot Builder</h3><p>Create AI chatbots easily.</p></div>
-    <div class="card"><h3>Data Engine</h3><p>AI insights from business data.</p></div>
+    <div class="card"><h3>AI Platform</h3><p>Automation platform.</p></div>
+    <div class="card"><h3>Chatbot Builder</h3><p>Create AI bots.</p></div>
+    <div class="card"><h3>Data Engine</h3><p>AI insights.</p></div>
   </div>
 </section>
 
@@ -289,41 +194,42 @@
 <section class="section" id="solutions">
   <h2>Solutions</h2>
   <div class="cards">
-    <div class="card"><h3>Customer Experience</h3><p>Improve engagement using AI.</p></div>
-    <div class="card"><h3>Sales Automation</h3><p>Automate leads and follow-ups.</p></div>
-    <div class="card"><h3>Operations</h3><p>Reduce manual work.</p></div>
+    <div class="card"><h3>Customer Experience</h3></div>
+    <div class="card"><h3>Sales Automation</h3></div>
+    <div class="card"><h3>Operations</h3></div>
+  </div>
+</section>
+
+<!-- DEMO FORM -->
+<section class="section" id="demo">
+  <h2>Request a Demo</h2>
+
+  <div class="form-container">
+    <form action="https://formspree.io/f/YOURID" method="POST">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <input type="text" name="company" placeholder="Company Name">
+
+      <textarea name="message" placeholder="Your Requirement"></textarea>
+
+      <button type="submit">Submit Request</button>
+
+    </form>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="section" id="about">
   <h2>About Aixogen</h2>
-  <p>Aixogen helps businesses scale using AI automation.</p>
-</section>
-
-<!-- DEMO -->
-<section class="section" id="demo">
-  <h2>Request a Demo</h2>
-  <a href="#" class="btn">Book Demo</a>
+  <p>We help businesses automate workflows using AI.</p>
 </section>
 
 <footer>
-  © 2026 Aixogen. All rights reserved.
+  © 2026 Aixogen
 </footer>
-
-<!-- SCROLL ANIMATION SCRIPT -->
-<script>
-  const sections = document.querySelectorAll('.section');
-
-  window.addEventListener('scroll', () => {
-    sections.forEach(section => {
-      const top = section.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        section.classList.add('show');
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
