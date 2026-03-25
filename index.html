@@ -530,6 +530,7 @@
 }
          /* MOBILE */
 @media(max-width:768px){
+
   nav {
     flex-direction: row;
     justify-content: space-between;
@@ -537,11 +538,17 @@
   }
 
   .menu {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: nowrap;
+    display: none !important; /* ✅ HIDE DESKTOP MENU */
   }
+
+  .hamburger {
+    display: block; /* ✅ SHOW ☰ */
+  }
+
+}
+.hamburger {
+  display: none;
+}
 
   .menu a {
     font-size: 12px;
@@ -604,11 +611,11 @@
          
       </nav>
       <div class="mobile-menu" id="mobileMenu">
-  <a onclick="scrollToSection('services')">Services</a>
-  <a onclick="scrollToSection('products')">Products</a>
-  <a onclick="scrollToSection('solutions')">Solutions</a>
-  <a href="#about">About</a>
-  <a href="#demo" class="mobile-btn">Request Demo</a>
+ <a onclick="scrollToSection('services'); toggleMenu()">Services</a>
+<a onclick="scrollToSection('products'); toggleMenu()">Products</a>
+<a onclick="scrollToSection('solutions'); toggleMenu()">Solutions</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#demo" class="mobile-btn" onclick="toggleMenu()">Request Demo</a>
 </div>
       <!-- HERO -->
       <section class="hero">
