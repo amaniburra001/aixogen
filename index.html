@@ -541,10 +541,14 @@
     display: none !important; /* ✅ HIDE DESKTOP MENU */
   }
 
-  .hamburger {
-    display: block; /* ✅ SHOW ☰ */
-  }
+}
+nav {
+  position: relative;
+}
 
+.hamburger {
+  position: absolute;
+  right: 20px;
 }
 .hamburger {
   display: none;
@@ -571,7 +575,6 @@
             AIXOGEN
          </div>
          <div class="menu">
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <div class="dropdown">
                <a onclick="scrollToSection('services')">Services</a>
                <div class="dropdown-content">
@@ -583,6 +586,7 @@
                   <a onclick="goTo(5)">Finance</a>
                   <a onclick="goTo(6)">Education</a>
                </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             </div>
             <div class="dropdown">
   <a onclick="scrollToSection('products')">Products</a>
