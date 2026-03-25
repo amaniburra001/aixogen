@@ -143,6 +143,80 @@
          overflow: hidden;
          text-overflow: ellipsis;
          }
+         .product-section {
+  padding: 60px 0;
+}
+
+/* CAROUSEL */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* ONE CARD PER VIEW */
+.feature-card {
+  min-width: 70vw;
+  max-width: 70vw;
+  margin: 0 20px;
+
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+
+  background: #1e293b;
+  color: white;
+
+  border-radius: 16px;
+  align-items: center;
+}
+
+/* IMAGE LEFT */
+.feature-image img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* CONTENT RIGHT */
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h3 {
+  margin-bottom: 10px;
+}
+
+.feature-content p {
+  color: #cbd5e1;
+}
+
+/* READ MORE */
+.full-text {
+  display: none;
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(37,99,235,0.6);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.left { left: 10px; }
+.right { right: 10px; }
          .feature-wrapper {
          display: flex;
          justify-content: center;
@@ -357,66 +431,61 @@
          </div>
       </section>
       <!-- PRODUCTS -->
-      <section class="services" id="products">
-         <h2 style="padding-left:20px;">Our Products</h2>
-         <div class="slider-wrapper">
-            <button class="arrow left" onclick="scrollProduct(-1)">❮</button>
-            <div class="slider" id="product-slider">
-               <div class="feature-wrapper">
-                  <div class="feature-card">
-                     <div class="feature-image">
-                        <img src="platform.png">
-                     </div>
-                     <div class="feature-content">
-                        <h3>AI Automation Platform</h3>
-                        <p class="short-text">
-                           A centralized platform to design, deploy, and manage AI workflows, enabling businesses to automate operations efficiently.
-                        </p>
-                        <p class="full-text">
-                           Our AI automation platform empowers organizations to streamline complex workflows through intelligent automation. It integrates seamlessly with existing systems, enables real-time monitoring, and provides scalable infrastructure to support business growth. By reducing manual intervention and enhancing operational visibility, businesses can improve efficiency, accelerate decision-making, and drive digital transformation.
-                        </p>
-                        <button onclick="toggleText(this)">Read More</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="feature-wrapper">
-                  <div class="feature-card">
-                     <div class="feature-image">
-                        <img src="platform.png">
-                     </div>
-                     <div class="feature-content">
-                        <h3>AI Automation Platform</h3>
-                        <p class="short-text">
-                           A centralized platform to design, deploy, and manage AI workflows, enabling businesses to automate operations efficiently.
-                        </p>
-                        <p class="full-text">
-                           Our AI automation platform empowers organizations to streamline complex workflows through intelligent automation. It integrates seamlessly with existing systems, enables real-time monitoring, and provides scalable infrastructure to support business growth. By reducing manual intervention and enhancing operational visibility, businesses can improve efficiency, accelerate decision-making, and drive digital transformation.
-                        </p>
-                        <button onclick="toggleText(this)">Read More</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="feature-wrapper">
-                  <div class="feature-card">
-                     <div class="feature-image">
-                        <img src="platform.png">
-                     </div>
-                     <div class="feature-content">
-                        <h3>AI Automation Platform</h3>
-                        <p class="short-text">
-                           A centralized platform to design, deploy, and manage AI workflows, enabling businesses to automate operations efficiently.
-                        </p>
-                        <p class="full-text">
-                           Our AI automation platform empowers organizations to streamline complex workflows through intelligent automation. It integrates seamlessly with existing systems, enables real-time monitoring, and provides scalable infrastructure to support business growth. By reducing manual intervention and enhancing operational visibility, businesses can improve efficiency, accelerate decision-making, and drive digital transformation.
-                        </p>
-                        <button onclick="toggleText(this)">Read More</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <button class="arrow right" onclick="scrollProduct(1)">❯</button>
-         </div>
-      </section>
+<section class="product-section" id="products">
+  <h2 style="padding-left:20px;">Our Products</h2>
+
+  <div class="carousel">
+
+    <button class="arrow left" onclick="moveProduct(-1)">❮</button>
+
+    <div class="carousel-track" id="product-track">
+
+      <!-- CARD 1 -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="platform.png">
+        </div>
+        <div class="feature-content">
+          <h3>AI Automation Platform</h3>
+
+          <p class="short-text">
+            Centralized platform to design and manage AI workflows across business operations.
+          </p>
+
+          <p class="full-text">
+            Our AI automation platform empowers organizations to streamline complex workflows through intelligent automation. It integrates seamlessly with existing systems, enables real-time monitoring, and supports scalable operations across departments.
+          </p>
+
+          <button onclick="toggleText(this)">Read More</button>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="chatbot.png">
+        </div>
+        <div class="feature-content">
+          <h3>Conversational AI</h3>
+
+          <p class="short-text">
+            AI chatbots for customer engagement and automation.
+          </p>
+
+          <p class="full-text">
+            Our conversational AI solutions enable businesses to automate customer interactions with intelligent chatbots and voice assistants, improving engagement, reducing costs, and delivering seamless user experiences across channels.
+          </p>
+
+          <button onclick="toggleText(this)">Read More</button>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="arrow right" onclick="moveProduct(1)">❯</button>
+
+  </div>
+</section>
       <!-- SOLUTIONS -->
       <section class="services" id="solutions">
          <h2 style="padding-left:20px;">Our Solutions</h2>
@@ -466,6 +535,21 @@
          const slider = document.getElementById('slider');
          const productSlider = document.getElementById('product-slider');
          const solutionSlider = document.getElementById('solution-slider');
+         let productIndex = 0;
+
+         function moveProduct(direction){
+         const track = document.getElementById('product-track');
+         const cards = document.querySelectorAll('#product-track .feature-card');
+
+  productIndex += direction;
+
+  if(productIndex < 0) productIndex = 0;
+  if(productIndex >= cards.length) productIndex = cards.length - 1;
+
+  const cardWidth = cards[0].offsetWidth + 40;
+
+  track.style.transform = `translateX(-${productIndex * cardWidth}px)`;
+}
          
          function scrollProduct(direction){
            const cardWidth = document.querySelector('#product-slider .card').offsetWidth + 20;
