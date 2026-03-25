@@ -237,7 +237,6 @@
 
     <div class="dropdown">
       <a onclick="scrollToSection('services')">Services</a>
-      <a href="#">Services</a>
       <div class="dropdown-content">
         <a onclick="goTo(0)">Healthcare</a>
         <a onclick="goTo(1)">Real Estate</a>
@@ -267,8 +266,6 @@
   </div>
 </div>
 
-    <a href="#products">Products</a>
-    <a href="#solutions">Solutions</a>
     <a href="#about">About</a>
 
     <a href="#demo" class="btn">Request Demo</a>
@@ -311,9 +308,98 @@
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="section" id="products">
-  <h2>Products</h2>
+  <!-- PRODUCTS -->
+<section class="services" id="products">
+  <h2 style="padding-left:20px;">Our Products</h2>
+
+  <div class="slider-wrapper">
+    <button class="arrow left" onclick="scrollProduct(-1)">❮</button>
+
+    <div class="slider" id="product-slider">
+
+      <div class="card">
+        <img src="platform.png">
+        <div class="card-content">
+          <h3>AI Platform</h3>
+          <p>End-to-end AI platform to design, deploy, and scale intelligent automation workflows across business operations.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="chatbot.png">
+        <div class="card-content">
+          <h3>Chatbot</h3>
+          <p>AI-powered conversational assistants for customer support, lead generation, and business automation.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="analytics.png">
+        <div class="card-content">
+          <h3>Predictive Analytics</h3>
+          <p>Advanced machine learning models to forecast trends, optimize decisions, and drive data-driven strategies.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="workflow.png">
+        <div class="card-content">
+          <h3>Workflow Automation</h3>
+          <p>Automate repetitive tasks and streamline business processes to improve efficiency and productivity.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="arrow right" onclick="scrollProduct(1)">❯</button>
+  </div>
+</section>
+  
+<!-- SOLUTIONS -->
+<section class="services" id="solutions">
+  <h2 style="padding-left:20px;">Our Solutions</h2>
+
+  <div class="slider-wrapper">
+    <button class="arrow left" onclick="scrollSolution(-1)">❮</button>
+
+    <div class="slider" id="solution-slider">
+
+      <div class="card">
+        <img src="support.png">
+        <div class="card-content">
+          <h3>Customer Support Automation</h3>
+          <p>Automate customer interactions with AI chatbots and intelligent ticket routing systems.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="sales.png">
+        <div class="card-content">
+          <h3>Sales Automation</h3>
+          <p>Boost conversions with AI-driven lead scoring, automated follow-ups, and customer insights.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="hrsolution.png">
+        <div class="card-content">
+          <h3>HR Automation</h3>
+          <p>Streamline hiring, onboarding, and employee engagement with intelligent automation tools.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="operations.png">
+        <div class="card-content">
+          <h3>Process Optimization</h3>
+          <p>Identify inefficiencies and automate workflows to improve operational performance and reduce costs.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="arrow right" onclick="scrollSolution(1)">❯</button>
+  </div>
 </section>
 
 <!-- DEMO -->
@@ -327,6 +413,24 @@
 
 <script>
 const slider = document.getElementById('slider');
+const productSlider = document.getElementById('product-slider');
+const solutionSlider = document.getElementById('solution-slider');
+
+function scrollProduct(direction){
+  const cardWidth = document.querySelector('#product-slider .card').offsetWidth + 20;
+  productSlider.scrollBy({
+    left: direction * cardWidth,
+    behavior: 'smooth'
+  });
+}
+
+function scrollSolution(direction){
+  const cardWidth = document.querySelector('#solution-slider .card').offsetWidth + 20;
+  solutionSlider.scrollBy({
+    left: direction * cardWidth,
+    behavior: 'smooth'
+  });
+}
 
 function scrollSlider(direction) {
   slider.scrollBy({
