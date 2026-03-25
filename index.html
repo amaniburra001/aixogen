@@ -285,32 +285,49 @@
 }
 
 .solution-card {
-  background: #ffffff;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1); /* light solid blue-grey */
   padding: 25px;
   border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
 .solution-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .solution-card i {
   font-size: 26px;
-  color: #2563eb;
+  color: #334155;
   margin-bottom: 10px;
 }
 
 .solution-card h4 {
   margin-bottom: 6px;
   font-size: 18px;
-  color: #1e293b;
+  color: #0f172a;
 }
 
 .solution-card p {
   font-size: 14px;
-  color: #64748b;
+  color: #334155;
+}
+
+/* BUTTON CHANGE */
+.read-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #0f172a; /* dark professional */
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.read-btn:hover {
+  background: #1e293b;
 }
 
 /* MOBILE */
@@ -593,65 +610,52 @@
 <section id="solutions" class="solution-section">
   <h2 style="padding-left:20px;">Our Solutions</h2>
 
-  <!-- CATEGORY 1 -->
-  <h3 class="solution-category">Core Business Automation</h3>
   <div class="solution-grid">
 
     <div class="solution-card">
       <i class="fa-solid fa-robot"></i>
-      <h4>HR & Recruitment Automation</h4>
-      <p>Automate hiring, onboarding, and employee management workflows.</p>
-      <a href="hr-automation.html" class="read-btn">Read More →</a>
+      <h4>Core Business Automation</h4>
+      <p>Automate HR, support, and internal workflows to boost productivity.</p>
+      <a href="core-automation.html" class="read-btn">Explore →</a>
     </div>
-
-    <div class="solution-card">
-      <i class="fa-solid fa-headset"></i>
-      <h4>Customer Support Automation</h4>
-      <p>AI chatbots and ticket automation for faster customer service.</p>
-      <a href="customer-support.html" class="read-btn">Read More →</a>
-    </div>
-
-  </div>
-
-  <!-- CATEGORY 2 -->
-  <h3 class="solution-category">Finance & Risk</h3>
-  <div class="solution-grid">
 
     <div class="solution-card">
       <i class="fa-solid fa-chart-line"></i>
-      <h4>Finance Automation</h4>
-      <p>Streamline accounting, reporting, and financial workflows.</p>
-      <a href="finance.html" class="read-btn">Read More →</a>
+      <h4>Finance & Risk Automation</h4>
+      <p>Enhance financial operations with AI-driven analytics and fraud detection.</p>
+      <a href="finance-risk.html" class="read-btn">Explore →</a>
     </div>
-
-    <div class="solution-card">
-      <i class="fa-solid fa-shield-halved"></i>
-      <h4>Fraud Detection & Risk Management</h4>
-      <p>Detect anomalies and prevent fraud with AI monitoring.</p>
-      <a href="fraud.html" class="read-btn">Read More →</a>
-    </div>
-
-  </div>
-
-  <!-- CATEGORY 3 -->
-  <h3 class="solution-category">Industry Solutions</h3>
-  <div class="solution-grid">
 
     <div class="solution-card">
       <i class="fa-solid fa-hospital"></i>
-      <h4>Healthcare Automation</h4>
-      <p>Optimize patient workflows and clinical operations.</p>
-      <a href="healthcare.html" class="read-btn">Read More →</a>
+      <h4>Industry-Specific Solutions</h4>
+      <p>Tailored AI solutions for healthcare, real estate, and more industries.</p>
+      <a href="industry.html" class="read-btn">Explore →</a>
     </div>
 
     <div class="solution-card">
-      <i class="fa-solid fa-building"></i>
-      <h4>Real Estate Automation</h4>
-      <p>Automate lead generation and client engagement.</p>
-      <a href="realestate.html" class="read-btn">Read More →</a>
+      <i class="fa-solid fa-server"></i>
+      <h4>Operations & IT Automation</h4>
+      <p>Optimize IT systems and business processes with intelligent automation.</p>
+      <a href="operations-it.html" class="read-btn">Explore →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-chart-pie"></i>
+      <h4>Growth & Intelligence</h4>
+      <p>Leverage AI insights for marketing, sales, and business growth.</p>
+      <a href="growth.html" class="read-btn">Explore →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-cloud"></i>
+      <h4>Enterprise Integration</h4>
+      <p>Connect systems and modernize infrastructure with AI-powered integration.</p>
+      <a href="integration.html" class="read-btn">Explore →</a>
     </div>
 
   </div>
+</section>
 
   <!-- CATEGORY 4 -->
   <h3 class="solution-category">Operations & IT</h3>
