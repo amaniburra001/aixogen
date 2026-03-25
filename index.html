@@ -190,7 +190,7 @@
   gap: 30px;
   padding: 30px;
 
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0); /* light blue-grey */
+  background: linear-gradient(135deg, #e0f2fe, #c7d2fe); /* light blue-grey */
   border-radius: 16px;
 
   border-radius: 16px;
@@ -451,14 +451,14 @@
 </div>
       
             <div class="dropdown">
-               <a onclick="scrollToSection('solutions')">Solutions</a>
                <div class="dropdown-content">
-                  <a onclick="goToSolution(0)">Core Business Automation</a>
-                  <a onclick="goToSolution(1)">Finance & Risk</a>
-                  <a onclick="goToSolution(2)">Industry-Specific Solutions</a>
-                  <a onclick="goToSolution(3)">Operations & IT</a>
-                  <a onclick="goToSolution(4)">Growth & Intelligence</a> 
-               </div>
+  <a onclick="scrollToSection('core')">Core Business Automation</a>
+  <a onclick="scrollToSection('finance')">Finance & Risk</a>
+  <a onclick="scrollToSection('industry')">Industry-Specific Solutions</a>
+  <a onclick="scrollToSection('operations')">Operations & IT</a>
+  <a onclick="scrollToSection('growth')">Growth & Intelligence</a>
+  <a onclick="scrollToSection('integration')">Enterprise Integration</a>
+</div>
             </div>
             <a href="#about">About</a>
             <a href="#demo" class="btn">Request Demo</a>
@@ -612,42 +612,42 @@
 
   <div class="solution-grid">
 
-    <div class="solution-card">
+    <div class="solution-card" id="core">>
       <i class="fa-solid fa-robot"></i>
       <h4>Core Business Automation</h4>
       <p>Automate HR, support, and internal workflows to boost productivity.</p>
       <a href="core-automation.html" class="read-btn">Explore →</a>
     </div>
 
-    <div class="solution-card">
+    <div class="solution-card" id="finance">
       <i class="fa-solid fa-chart-line"></i>
       <h4>Finance & Risk Automation</h4>
       <p>Enhance financial operations with AI-driven analytics and fraud detection.</p>
       <a href="finance-risk.html" class="read-btn">Explore →</a>
     </div>
 
-    <div class="solution-card">
+    <div class="solution-card" id="industry">
       <i class="fa-solid fa-hospital"></i>
       <h4>Industry-Specific Solutions</h4>
       <p>Tailored AI solutions for healthcare, real estate, and more industries.</p>
       <a href="industry.html" class="read-btn">Explore →</a>
     </div>
 
-    <div class="solution-card">
+    <div class="solution-card" id="operations">
       <i class="fa-solid fa-server"></i>
       <h4>Operations & IT Automation</h4>
       <p>Optimize IT systems and business processes with intelligent automation.</p>
       <a href="operations-it.html" class="read-btn">Explore →</a>
     </div>
 
-    <div class="solution-card">
+    <div class="solution-card" id="growth">
       <i class="fa-solid fa-chart-pie"></i>
       <h4>Growth & Intelligence</h4>
       <p>Leverage AI insights for marketing, sales, and business growth.</p>
       <a href="growth.html" class="read-btn">Explore →</a>
     </div>
 
-    <div class="solution-card">
+    <div class="solution-card" id="integration">
       <i class="fa-solid fa-cloud"></i>
       <h4>Enterprise Integration</h4>
       <p>Connect systems and modernize infrastructure with AI-powered integration.</p>
@@ -707,22 +707,12 @@
          }
          
          function scrollToSection(id){
-           document.getElementById(id).scrollIntoView({behavior:'smooth'});
-         }
-         
-         
-         function goToSolution(index){
-           scrollToSection('solutions');
-         
-           setTimeout(() => {
-             const cardWidth = document.querySelector('#solution-slider .card').offsetWidth + 20;
-             document.getElementById('solution-slider').scrollTo({
-               left: index * cardWidth,
-               behavior: 'smooth'
-             });
-           }, 400);
-         }
-         
+  const el = document.getElementById(id);
+  const yOffset = -80;
+  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({top: y, behavior: 'smooth'});
+}
       </script>
    </body>
 </html>
