@@ -7,6 +7,9 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
       <style>
+         html {
+         scroll-behavior: smooth;
+         }
          body {
          margin: 0;
          font-family: 'Segoe UI', sans-serif;
@@ -995,13 +998,18 @@ const iti = window.intlTelInput(phoneInput, {
          
          const slider = document.getElementById('slider');
          const solutionSlider = document.getElementById('solution-slider');
+         window.addEventListener("DOMContentLoaded", () => {
          document.querySelectorAll('.feature-content').forEach(content => {
-  const shortText = content.querySelector('.short-text');
-  const fullText = content.querySelector('.full-text');
+        const shortText = content.querySelector('.short-text');
+        const fullText = content.querySelector('.full-text');
 
-  shortText.style.display = "block";
-  fullText.style.display = "none";
+    if(shortText && fullText){
+      shortText.style.display = "block";
+      fullText.style.display = "none";
+    }
+  });
 });
+        
          
          
          function scrollSolution(direction){
@@ -1059,43 +1067,19 @@ document.addEventListener("click", function(event) {
     menu.classList.remove("active");
   }
 });
-         
-         function scrollToSection(id){
-  const el = document.getElementById(id);
-  const yOffset = -80;
-  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-  window.scrollTo({top: y, behavior: 'smooth'});
+function scrollToSection(id){
+  const el = document.getElementById(id);
+  if(el){
+    el.scrollIntoView({ behavior: "smooth" });
+  }
 }
+         
 const form = document.getElementById("demoForm");
 const successMessage = document.getElementById("successMessage");
-if (!iti.isValidNumber()) {
-  phoneError.style.display = "block";
-  return;
-} else {
-  phoneError.style.display = "none";
-}
-
-phoneInput.addEventListener("input", () => {
-  phoneError.style.display = "none";
-});
 
 form.addEventListener("submit", function(e){
   e.preventDefault(); // stop default redirect
-
- const countryCode = countryCodeInput.value.trim();
-  const mobile = mobileInput.value.trim();
-
-  // Validation rules
-  const countryCodeValid = /^\+\d{1,4}$/.test(countryCode);
-  const mobileValid = /^\d{7,15}$/.test(mobile);
-
-  if(!countryCodeValid || !mobileValid){
-    phoneError.style.display = "block";
-    return; // ❌ STOP FORM
-  } else {
-    phoneError.style.display = "none";
-  }
 
   // Continue form submission
   const formData = new FormData(form);
