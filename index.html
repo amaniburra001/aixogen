@@ -488,25 +488,14 @@
 /* MOBILE MENU */
 .mobile-menu {
   display: none;
-  flex-direction: column;
-  background: white;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  z-index: 999;
 }
 
-.mobile-menu a {
-  padding: 12px 0;
-  text-decoration: none;
-  color: #111;
-  font-size: 16px;
-  border-bottom: 1px solid #eee;
+.mobile-menu.active {
+  display: flex;
 }
-
+ .mobile-menu {
+  transition: all 0.3s ease;
+}
 .mobile-btn {
   background: #2563eb;
   color: white !important;
@@ -880,13 +869,21 @@ nav {
 
 function toggleMenu(){
   const menu = document.getElementById("mobileMenu");
-
-  if(menu.style.display === "flex"){
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
+  menu.classList.toggle("active");
 }
+/* ✅ ADD THIS BELOW */
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.querySelector(".hamburger");
+
+  if (
+    menu.classList.contains("active") &&
+    !menu.contains(event.target) &&
+    !hamburger.contains(event.target)
+  ) {
+    menu.classList.remove("active");
+  }
+});
          
          function scrollToSection(id){
   const el = document.getElementById(id);
