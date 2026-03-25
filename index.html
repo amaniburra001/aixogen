@@ -542,6 +542,17 @@
   }
 
 }
+@media(max-width:768px){
+
+  .menu {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+}
 nav {
   position: relative;
 }
@@ -549,9 +560,6 @@ nav {
 .hamburger {
   position: absolute;
   right: 20px;
-}
-.hamburger {
-  display: none;
 }
 
   .menu a {
@@ -586,7 +594,6 @@ nav {
                   <a onclick="goTo(5)">Finance</a>
                   <a onclick="goTo(6)">Education</a>
                </div>
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
             </div>
             <div class="dropdown">
   <a onclick="scrollToSection('products')">Products</a>
@@ -600,7 +607,7 @@ nav {
       
             <div class="dropdown">
    <a onclick="scrollToSection('solutions')">Solutions</a>
-               <div class="dropdown-content">
+ <div class="dropdown-content">
   <a onclick="scrollToSection('core')">Core Business Automation</a>
   <a onclick="scrollToSection('finance')">Finance & Risk</a>
   <a onclick="scrollToSection('industry')">Industry-Specific Solutions</a>
@@ -612,7 +619,7 @@ nav {
             <a href="#about">About</a>
             <a href="#demo" class="btn">Request Demo</a>
          </div>
-         
+       <div class="hamburger" onclick="toggleMenu()">☰</div>
       </nav>
       <div class="mobile-menu" id="mobileMenu">
  <a onclick="scrollToSection('services'); toggleMenu()">Services</a>
