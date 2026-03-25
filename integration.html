@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enterprise Integration - AIXOGEN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef1f5;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo img {
+      height: 35px;
+      margin-right: 10px;
+    }
+
+    .demo-btn {
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #2563eb);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .solution-block {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: center;
+    }
+
+    .solution-block.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .solution-image img {
+      width: 400px;
+      border-radius: 12px;
+    }
+
+    .solution-content h2 {
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .solution-content p {
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: #e2e8f0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    @media(max-width:768px){
+      .solution-block {
+        flex-direction: column;
+      }
+
+      .solution-block.reverse {
+        flex-direction: column;
+      }
+
+      .solution-image img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="aixogen_logo.png"> AIXOGEN
+  </div>
+
+  <a href="index.html#demo" class="demo-btn">Request Demo</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Enterprise Integration</h1>
+  <p>Connecting systems, data, and workflows for seamless business operations</p>
+</div>
+
+<div class="section">
+
+  <!-- CRM ERP -->
+  <div class="solution-block">
+    <div class="solution-image">
+      <img src="integration.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>CRM & ERP Integration</h2>
+
+      <p>
+        Organizations often operate with disconnected systems such as CRM, ERP, and internal tools, leading to data silos, inefficiencies, and lack of real-time visibility across operations.
+      </p>
+
+      <p>
+        Enterprise integration connects these systems to enable seamless data flow and unified operations. It ensures that information is synchronized across platforms, eliminating duplication and inconsistencies.
+      </p>
+
+      <p>
+        Implementation involves mapping system architectures, integrating APIs, and enabling real-time data exchange between platforms. This ensures a unified ecosystem for business operations.
+      </p>
+
+      <p>
+        The result is improved operational efficiency, better decision-making, and enhanced collaboration across departments.
+      </p>
+
+      <div class="stats">
+        <div class="stat">Real-time Data Sync</div>
+        <div class="stat">Eliminates Data Silos</div>
+        <div class="stat">Improved Visibility</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- API INTEGRATION -->
+  <div class="solution-block reverse">
+    <div class="solution-image">
+      <img src="api.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>API & System Integration</h2>
+
+      <p>
+        Modern businesses rely on multiple applications and services that need to communicate efficiently. Lack of integration results in fragmented workflows and operational inefficiencies.
+      </p>
+
+      <p>
+        API-based integration enables seamless communication between systems, ensuring smooth data exchange and workflow continuity.
+      </p>
+
+      <p>
+        The solution involves designing and implementing secure APIs, enabling connectivity between applications and services across the organization.
+      </p>
+
+      <p>
+        This improves system interoperability, enhances scalability, and ensures efficient business operations.
+      </p>
+
+      <div class="stats">
+        <div class="stat">Seamless Connectivity</div>
+        <div class="stat">Scalable Systems</div>
+        <div class="stat">Faster Operations</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DATA INTEGRATION -->
+  <div class="solution-block">
+    <div class="solution-image">
+      <img src="data.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>Data Integration & Management</h2>
+
+      <p>
+        Organizations generate data across multiple platforms, but lack of integration prevents effective utilization and analysis.
+      </p>
+
+      <p>
+        Data integration solutions consolidate data from various sources into a unified system, enabling better visibility and analytics.
+      </p>
+
+      <p>
+        Implementation includes building data pipelines, ensuring data quality, and enabling real-time data access across systems.
+      </p>
+
+      <p>
+        This allows organizations to leverage data effectively for decision-making and operational efficiency.
+      </p>
+
+      <div class="stats">
+        <div class="stat">Unified Data View</div>
+        <div class="stat">Improved Accuracy</div>
+        <div class="stat">Better Insights</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WORKFLOW INTEGRATION -->
+  <div class="solution-block reverse">
+    <div class="solution-image">
+      <img src="workflow_automation.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>Workflow Integration & Automation</h2>
+
+      <p>
+        Disconnected workflows across departments lead to inefficiencies, delays, and lack of coordination in business operations.
+      </p>
+
+      <p>
+        Workflow integration connects processes across systems, enabling seamless execution of tasks and automated workflows.
+      </p>
+
+      <p>
+        The solution integrates business processes with enterprise systems to ensure smooth coordination and execution.
+      </p>
+
+      <p>
+        This improves operational efficiency, reduces delays, and enhances collaboration across teams.
+      </p>
+
+      <div class="stats">
+        <div class="stat">End-to-End Automation</div>
+        <div class="stat">Reduced Delays</div>
+        <div class="stat">Improved Coordination</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
