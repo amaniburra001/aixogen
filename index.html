@@ -2,8 +2,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AIXOGEN</title>
+
+<!-- ICONS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 body{
@@ -49,11 +51,13 @@ nav{
   cursor:pointer;
 }
 
+/* FIXED BUTTON STYLE */
 .btn{
-  background:#2563eb;
-  color:white;
+  background:#eef1f5;
+  color:#2563eb;
   padding:10px 16px;
   border-radius:6px;
+  border:1px solid #2563eb;
 }
 
 /* DROPDOWN */
@@ -113,7 +117,14 @@ h2{
 .slider{
   display:flex;
   gap:20px;
-  overflow:hidden;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
+}
+
+.slider::-webkit-scrollbar{
+  display:none;
 }
 
 .card{
@@ -122,25 +133,31 @@ h2{
   border-radius:10px;
   overflow:hidden;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  scroll-snap-align:start;
+  transition:0.3s;
 }
 
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
+.card:hover{
+  transform:translateY(-5px);
 }
 
-.card-content{
-  padding:15px;
+/* ICON */
+.icon{
+  font-size:30px;
+  color:#2563eb;
+  margin-bottom:10px;
 }
 
+/* TEXT STYLING FIX */
 .card-content h3{
   margin:5px 0;
+  color:#111;
 }
 
 .card-content p{
   font-size:14px;
-  color:#555;
+  color:#666;
+  line-height:1.5;
 }
 
 /* ARROWS */
@@ -158,51 +175,6 @@ h2{
 .left{left:-10px;}
 .right{right:-10px;}
 
-/* CONTACT */
-.contact-hero{
-  height:300px;
-  background:url('background.png') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  padding-left:50px;
-  color:white;
-  font-size:32px;
-}
-
-.contact-container{
-  display:flex;
-  background:black;
-  color:white;
-  padding:50px;
-  gap:40px;
-}
-
-.form-section{flex:2;}
-.info-section{flex:1;}
-
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  background:black;
-  border:1px solid #555;
-  color:white;
-}
-
-button{
-  background:#2563eb;
-  color:white;
-  padding:12px;
-  border:none;
-  width:100%;
-}
-
-footer{
-  background:black;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
 </style>
 </head>
 
@@ -217,7 +189,7 @@ footer{
   <div class="menu">
 
     <div class="dropdown">
-      <a>Services</a>
+      <a onclick="scrollToSection('services')">Services</a>
       <div class="dropdown-content">
         <a onclick="goTo('services',0)">Healthcare</a>
         <a onclick="goTo('services',1)">Real Estate</a>
@@ -227,7 +199,7 @@ footer{
     </div>
 
     <div class="dropdown">
-      <a>Products</a>
+      <a onclick="scrollToSection('products')">Products</a>
       <div class="dropdown-content">
         <a onclick="goTo('products',0)">AI Platform</a>
         <a onclick="goTo('products',1)">Chatbot</a>
@@ -240,11 +212,6 @@ footer{
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-box">AI Automation for Modern Businesses</div>
-</section>
-
 <!-- SERVICES -->
 <section class="section" id="services">
 <h2>Services</h2>
@@ -255,31 +222,31 @@ footer{
 <div class="slider" id="services-slider">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1588776814546">
 <div class="card-content">
+<div class="icon"><i class="fas fa-heartbeat"></i></div>
 <h3>Healthcare</h3>
-<p>AI diagnostics & patient automation.</p>
+<p>AI-powered diagnostics and patient workflow automation to improve care efficiency.</p>
 </div></div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1560518883">
 <div class="card-content">
+<div class="icon"><i class="fas fa-building"></i></div>
 <h3>Real Estate</h3>
-<p>Automated CRM & lead scoring.</p>
+<p>Automated CRM, smart lead scoring, and predictive analytics for faster conversions.</p>
 </div></div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1551434678">
 <div class="card-content">
+<div class="icon"><i class="fas fa-users"></i></div>
 <h3>HR</h3>
-<p>Hiring automation & employee AI tools.</p>
+<p>AI-driven hiring, resume screening, and employee engagement automation tools.</p>
 </div></div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1518770660439">
 <div class="card-content">
+<div class="icon"><i class="fas fa-server"></i></div>
 <h3>IT</h3>
-<p>Infrastructure automation & monitoring.</p>
+<p>Infrastructure monitoring, predictive maintenance, and automated IT operations.</p>
 </div></div>
 
 </div>
@@ -298,17 +265,17 @@ footer{
 <div class="slider" id="products-slider">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1555949963">
 <div class="card-content">
+<div class="icon"><i class="fas fa-robot"></i></div>
 <h3>AI Platform</h3>
-<p>End-to-end AI automation platform.</p>
+<p>End-to-end automation platform to build, deploy, and scale AI workflows.</p>
 </div></div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1550751827">
 <div class="card-content">
+<div class="icon"><i class="fas fa-comments"></i></div>
 <h3>Chatbot</h3>
-<p>Smart conversational AI assistants.</p>
+<p>Intelligent conversational AI for customer support and engagement.</p>
 </div></div>
 
 </div>
@@ -317,47 +284,6 @@ footer{
 </div>
 </section>
 
-<!-- SOLUTIONS -->
-<section class="section" id="solutions">
-<h2>Solutions</h2>
-<p>Custom AI solutions tailored to industries.</p>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-<h2>About</h2>
-<p>Aixogen builds powerful AI automation tools.</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<div class="contact-hero">Contact Us</div>
-
-<div class="contact-container">
-
-<div class="form-section">
-<form>
-<input placeholder="First Name">
-<input placeholder="Last Name">
-<input placeholder="Business Email">
-<input placeholder="Phone (+91)">
-<input placeholder="Company">
-<textarea placeholder="Message"></textarea>
-<button>Submit</button>
-</form>
-</div>
-
-<div class="info-section">
-<h3>We’re just one click away</h3>
-<p>Email: info@aixogen.com</p>
-<p>Phone: +91 XXXXXXXX</p>
-</div>
-
-</div>
-</section>
-
-<footer>© 2026 Aixogen</footer>
-
 <script>
 function scrollToSection(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
@@ -365,17 +291,23 @@ function scrollToSection(id){
 
 function goTo(section,index){
   scrollToSection(section);
+
   setTimeout(()=>{
-    document.getElementById(section+"-slider").scrollTo({
-      left:index*340,
+    const slider = document.getElementById(section+"-slider");
+    const cardWidth = slider.querySelector('.card').offsetWidth + 20;
+    slider.scrollTo({
+      left:index * cardWidth,
       behavior:'smooth'
     });
-  },400);
+  },500);
 }
 
 function move(id,dir){
-  document.getElementById(id).scrollBy({
-    left:dir*350,
+  const slider = document.getElementById(id);
+  const cardWidth = slider.querySelector('.card').offsetWidth + 20;
+
+  slider.scrollBy({
+    left:dir * cardWidth,
     behavior:'smooth'
   });
 }
