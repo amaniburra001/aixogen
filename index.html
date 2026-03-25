@@ -11,7 +11,6 @@
       background: #eef1f5;
     }
 
-    /* NAVBAR */
     nav {
       display: flex;
       justify-content: space-between;
@@ -26,36 +25,35 @@
     .logo {
       display: flex;
       align-items: center;
+      font-size: 28px;
       font-weight: bold;
-      font-size: 30px;
     }
 
     .logo img {
       height: 45px;
-      margin-right: 12px;
+      margin-right: 10px;
     }
 
     .menu {
       display: flex;
+      gap: 25px;
       align-items: center;
-      gap: 30px;
     }
 
     .menu a {
       text-decoration: none;
       color: black;
       font-size: 18px;
+      cursor: pointer;
     }
 
     .btn {
       background: #2563eb;
       color: white;
-      padding: 10px 18px;
+      padding: 10px 16px;
       border-radius: 6px;
-      font-size: 16px;
     }
 
-    /* DROPDOWN */
     .dropdown {
       position: relative;
     }
@@ -63,55 +61,45 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 30px;
       background: white;
-      width: 240px;
-      border-radius: 10px;
+      top: 30px;
+      width: 220px;
+      border-radius: 8px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px;
-      font-size: 14px;
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    /* HERO */
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      cursor: pointer;
+    }
+
     .hero {
       height: 500px;
       background: url('background.png') center/cover no-repeat;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
 
     .hero-box {
       background: rgba(0,0,0,0.6);
       color: white;
-      padding: 30px 40px;
-      border-radius: 12px;
+      padding: 30px;
+      border-radius: 10px;
       font-size: 28px;
-      font-weight: bold;
     }
 
-    /* SECTION */
     .section {
       padding: 60px 40px;
     }
 
     h2 {
       font-size: 30px;
-      color: #111;
-      margin-bottom: 20px;
-    }
-
-    /* SLIDER */
-    .slider-wrapper {
-      position: relative;
     }
 
     .slider {
@@ -121,21 +109,10 @@
       scroll-behavior: smooth;
     }
 
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
-
     .card {
-      min-width: 320px;
+      min-width: 300px;
       background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
+      border-radius: 10px;
     }
 
     .card img {
@@ -148,52 +125,48 @@
       padding: 15px;
     }
 
-    .card h3 {
-      margin: 0;
-      color: #111;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #555;
-    }
-
-    /* ARROWS */
-    .arrow {
-      position: absolute;
-      top: 40%;
-      width: 40px;
-      height: 40px;
-      background: #2563eb;
+    /* CONTACT PAGE STYLE */
+    .contact-hero {
+      height: 300px;
+      background: url('background.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
       color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
+      font-size: 30px;
     }
 
-    .left { left: -10px; }
-    .right { right: -10px; }
-
-    /* FORM */
-    .form-box {
-      background: white;
-      padding: 30px;
-      max-width: 500px;
-      border-radius: 12px;
+    .contact-container {
+      display: flex;
+      background: black;
+      color: white;
+      padding: 50px;
+      gap: 40px;
     }
 
-    input, textarea {
+    .form-section {
+      flex: 2;
+    }
+
+    .info-section {
+      flex: 1;
+    }
+
+    input, textarea, select {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
+      background: black;
+      border: 1px solid #555;
+      color: white;
     }
 
     button {
-      width: 100%;
       background: #2563eb;
       color: white;
       padding: 12px;
       border: none;
+      width: 100%;
     }
 
     footer {
@@ -207,144 +180,99 @@
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <div class="logo">
-    <img src="aixogen_logo.png">
-    AIXOGEN
+    <img src="aixogen_logo.png"> AIXOGEN
   </div>
 
   <div class="menu">
 
-    <!-- SERVICES -->
     <div class="dropdown">
-      <a href="#">Services</a>
+      <a>Services</a>
       <div class="dropdown-content">
-        <a onclick="goTo('services-slider',0)">Healthcare</a>
-        <a onclick="goTo('services-slider',1)">Real Estate</a>
-        <a onclick="goTo('services-slider',2)">HR</a>
-        <a onclick="goTo('services-slider',3)">IT</a>
-        <a onclick="goTo('services-slider',4)">Support</a>
-        <a onclick="goTo('services-slider',5)">Finance</a>
+        <a onclick="goTo('services',0)">Healthcare</a>
+        <a onclick="goTo('services',1)">Real Estate</a>
       </div>
     </div>
 
-    <!-- PRODUCTS -->
     <div class="dropdown">
-      <a href="#">Products</a>
+      <a>Products</a>
       <div class="dropdown-content">
-        <a onclick="goTo('products-slider',0)">AI Platform</a>
-        <a onclick="goTo('products-slider',1)">Chatbot</a>
-        <a onclick="goTo('products-slider',2)">Data Engine</a>
+        <a onclick="goTo('products',0)">AI Platform</a>
+        <a onclick="goTo('products',1)">Chatbot</a>
       </div>
     </div>
 
-    <!-- SOLUTIONS -->
-    <div class="dropdown">
-      <a href="#">Solutions</a>
-      <div class="dropdown-content">
-        <a onclick="goTo('solutions-slider',0)">Customer Experience</a>
-        <a onclick="goTo('solutions-slider',1)">Sales Automation</a>
-        <a onclick="goTo('solutions-slider',2)">Operations</a>
-      </div>
-    </div>
-
-    <a href="#about">About</a>
-    <a href="#demo" class="btn">Request Demo</a>
+    <a onclick="scrollToSection('solutions')">Solutions</a>
+    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('contact')" class="btn">Request Demo</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-box">
     AI Automation for Modern Businesses
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="section" id="services">
   <h2>Services</h2>
-  <div class="slider-wrapper">
-    <button class="arrow left" onclick="scrollSlider('services-slider',-1)">❮</button>
-
-    <div class="slider" id="services-slider">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1588776814546">
-        <div class="card-content">
-          <h3>Healthcare</h3>
-          <p>AI for diagnostics, workflows, and patient automation.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1560518883">
-        <div class="card-content">
-          <h3>Real Estate</h3>
-          <p>Lead automation and smart property recommendations.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551434678">
-        <div class="card-content">
-          <h3>HR</h3>
-          <p>AI hiring, screening, and employee workflows.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <button class="arrow right" onclick="scrollSlider('services-slider',1)">❯</button>
+  <div class="slider" id="services-slider">
+    <div class="card"><img src="https://images.unsplash.com/photo-1588776814546"><div class="card-content">Healthcare</div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1560518883"><div class="card-content">Real Estate</div></div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="section" id="products">
   <h2>Products</h2>
-  <div class="slider-wrapper">
-    <button class="arrow left" onclick="scrollSlider('products-slider',-1)">❮</button>
-
-    <div class="slider" id="products-slider">
-      <div class="card"><img src="https://images.unsplash.com/photo-1555949963"><div class="card-content"><h3>AI Platform</h3><p>End-to-end automation system.</p></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1550751827"><div class="card-content"><h3>Chatbot</h3><p>AI customer interaction engine.</p></div></div>
-    </div>
-
-    <button class="arrow right" onclick="scrollSlider('products-slider',1)">❯</button>
+  <div class="slider" id="products-slider">
+    <div class="card"><img src="https://images.unsplash.com/photo-1555949963"><div class="card-content">AI Platform</div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1550751827"><div class="card-content">Chatbot</div></div>
   </div>
 </section>
 
-<!-- SOLUTIONS -->
 <section class="section" id="solutions">
   <h2>Solutions</h2>
-  <div class="slider-wrapper">
-    <button class="arrow left" onclick="scrollSlider('solutions-slider',-1)">❮</button>
-
-    <div class="slider" id="solutions-slider">
-      <div class="card"><img src="https://images.unsplash.com/photo-1526378722484"><div class="card-content"><h3>Customer Experience</h3><p>Improve engagement using AI.</p></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1556740738"><div class="card-content"><h3>Sales Automation</h3><p>Increase conversions with automation.</p></div></div>
-    </div>
-
-    <button class="arrow right" onclick="scrollSlider('solutions-slider',1)">❯</button>
-  </div>
+  <p>AI-driven solutions for automation.</p>
 </section>
 
-<!-- ABOUT -->
 <section class="section" id="about">
   <h2>About</h2>
-  <p style="color:#555;">Aixogen helps businesses automate operations using AI.</p>
+  <p>Aixogen builds AI automation systems.</p>
 </section>
 
-<!-- DEMO -->
-<section class="section" id="demo">
-  <h2>Request Demo</h2>
-  <div class="form-box">
-    <form action="https://formspree.io/f/YOURID" method="POST">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Requirement"></textarea>
-      <button type="submit">Submit</button>
-    </form>
+<!-- CONTACT / DEMO PAGE -->
+<section id="contact">
+  <div class="contact-hero">
+    Contact Us
+  </div>
+
+  <div class="contact-container">
+
+    <!-- FORM -->
+    <div class="form-section">
+      <form>
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+        <input type="email" placeholder="Business Email">
+        <input type="text" placeholder="Phone (+91)">
+        <input type="text" placeholder="Company">
+        <select>
+          <option>Service Request</option>
+        </select>
+        <textarea placeholder="Message"></textarea>
+        <button>Submit</button>
+      </form>
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="info-section">
+      <h3>We’re just one click away</h3>
+      <p><b>Address:</b><br> Your Company Address</p>
+      <p><b>Phone:</b> +91 XXXXXXXX</p>
+      <p><b>Email:</b> info@aixogen.com</p>
+    </div>
+
   </div>
 </section>
 
@@ -353,19 +281,19 @@
 </footer>
 
 <script>
-function scrollSlider(id, dir) {
-  document.getElementById(id).scrollBy({
-    left: dir * 320,
-    behavior: 'smooth'
-  });
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-function goTo(id, index) {
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-  document.getElementById(id).scrollTo({
-    left: index * 320,
-    behavior: 'smooth'
-  });
+function goTo(section, index) {
+  document.getElementById(section).scrollIntoView({behavior:"smooth"});
+
+  setTimeout(()=>{
+    document.getElementById(section+"-slider").scrollTo({
+      left: index * 320,
+      behavior: 'smooth'
+    });
+  }, 400);
 }
 </script>
 
