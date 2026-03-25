@@ -1,92 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aixogen - AI Automation</title>
+  <title>Aixogen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial;
       background: #eef1f5;
-      color: #111;
     }
 
+    /* NAVBAR */
     nav {
-      position: sticky;
-      top: 0;
-      background: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
-      border-bottom: 1px solid #eee;
+      padding: 15px 40px;
+      background: white;
+      position: sticky;
+      top: 0;
       z-index: 1000;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      font-size: 24px;
       font-weight: bold;
+      font-size: 22px;
     }
 
     .logo img {
-      height: 35px;
+      height: 30px;
       margin-right: 10px;
     }
 
     .menu {
       display: flex;
       align-items: center;
+      gap: 20px;
     }
 
     .menu a {
-      margin: 0 15px;
       text-decoration: none;
-      color: #111;
+      color: black;
+      font-size: 14px;
     }
 
     .btn {
       background: #2563eb;
       color: white;
-      padding: 10px 16px;
+      padding: 8px 14px;
       border-radius: 6px;
-      text-decoration: none;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 25px;
+      background: white;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     /* HERO */
     .hero {
-      height: 400px;
+      height: 350px;
       background: url('background.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .hero-overlay {
-      background: rgba(0,0,0,0.5);
-      padding: 30px;
+    .hero-box {
+      background: rgba(0,0,0,0.6);
       color: white;
+      padding: 20px 30px;
       border-radius: 10px;
-      text-align: center;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 50px 20px;
     }
 
     /* SLIDER */
-    .section {
-      padding: 60px 20px;
-    }
-
     .slider-wrapper {
       position: relative;
     }
 
     .slider {
       display: flex;
+      gap: 15px;
       overflow-x: auto;
-      gap: 20px;
       scroll-behavior: smooth;
     }
 
@@ -95,16 +117,16 @@
     }
 
     .card {
-      min-width: 280px;
+      min-width: 250px;
       background: white;
-      border-radius: 12px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
     .card img {
       width: 100%;
-      height: 160px;
+      height: 140px;
       object-fit: cover;
     }
 
@@ -115,24 +137,24 @@
     /* ARROWS */
     .arrow {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 40%;
+      width: 35px;
+      height: 35px;
       background: #2563eb;
       color: white;
       border: none;
-      padding: 10px;
       border-radius: 50%;
       cursor: pointer;
     }
 
-    .left { left: 0; }
-    .right { right: 0; }
+    .left { left: 5px; }
+    .right { right: 5px; }
 
     /* FORM */
-    .form-container {
-      max-width: 500px;
+    .form-box {
       background: white;
-      padding: 30px;
+      padding: 20px;
+      max-width: 400px;
       border-radius: 10px;
     }
 
@@ -151,7 +173,7 @@
     }
 
     footer {
-      background: #111;
+      background: black;
       color: white;
       text-align: center;
       padding: 20px;
@@ -173,7 +195,19 @@
   </div>
 
   <div class="menu">
-    <a href="#services">Services</a>
+
+    <div class="dropdown">
+      <a href="#">Services</a>
+      <div class="dropdown-content">
+        <a onclick="goTo(0)">Healthcare</a>
+        <a onclick="goTo(1)">Real Estate</a>
+        <a onclick="goTo(2)">HR</a>
+        <a onclick="goTo(3)">IT</a>
+        <a onclick="goTo(4)">Support</a>
+        <a onclick="goTo(5)">Finance</a>
+      </div>
+    </div>
+
     <a href="#products">Products</a>
     <a href="#solutions">Solutions</a>
     <a href="#about">About</a>
@@ -183,8 +217,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-overlay">
-    <h1>AI Automation for Modern Businesses</h1>
+  <div class="hero-box">
+    <h2>AI Automation for Modern Businesses</h2>
   </div>
 </section>
 
@@ -217,7 +251,7 @@
 
     <div class="slider" id="products-slider">
       <div class="card"><img src="https://images.unsplash.com/photo-1555949963"><h3>AI Platform</h3></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1550751827"><h3>Chatbot Builder</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1550751827"><h3>Chatbot</h3></div>
       <div class="card"><img src="https://images.unsplash.com/photo-1519389950473"><h3>Data Engine</h3></div>
     </div>
 
@@ -244,23 +278,19 @@
 
 <!-- ABOUT -->
 <section class="section" id="about">
-  <h2>About Aixogen</h2>
-  <p>
-    Aixogen is an AI automation company helping businesses streamline operations,
-    improve efficiency, and scale using intelligent AI systems.
-  </p>
+  <h2>About</h2>
+  <p>Aixogen provides AI automation solutions to modern businesses.</p>
 </section>
 
 <!-- DEMO -->
 <section class="section" id="demo">
   <h2>Request Demo</h2>
 
-  <div class="form-container">
+  <div class="form-box">
     <form action="https://formspree.io/f/YOURID" method="POST">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="company" placeholder="Company">
-      <textarea name="message" placeholder="Requirement"></textarea>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Requirement"></textarea>
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -273,7 +303,15 @@
 <script>
 function scrollSlider(id, dir) {
   document.getElementById(id).scrollBy({
-    left: dir * 300,
+    left: dir * 260,
+    behavior: 'smooth'
+  });
+}
+
+function goTo(index) {
+  document.getElementById("services").scrollIntoView({behavior:"smooth"});
+  document.getElementById("services-slider").scrollTo({
+    left: index * 260,
     behavior: 'smooth'
   });
 }
