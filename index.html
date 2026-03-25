@@ -54,6 +54,10 @@
       font-size: 14px;
     }
 
+    .menu a:hover {
+      color: #2563eb;
+    }
+
     .btn {
       background: #2563eb;
       color: white;
@@ -63,7 +67,47 @@
       margin-left: 10px;
     }
 
-    /* HERO */
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: white;
+      width: 320px;
+      padding: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .dropdown-item i {
+      color: #2563eb;
+      margin-top: 5px;
+    }
+
+    .dropdown-item strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-item p {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* HERO (LOCAL IMAGE) */
     .hero-image {
       height: 450px;
       background: url('background.png') center/cover no-repeat;
@@ -84,7 +128,7 @@
       font-size: 36px;
     }
 
-    /* SECTION */
+    /* SECTIONS */
     .section {
       padding: 60px 40px;
     }
@@ -144,12 +188,12 @@
         align-items: flex-start;
       }
 
-      .hero-overlay h1 {
-        font-size: 24px;
-      }
-
       .cards {
         flex-direction: column;
+      }
+
+      .hero-overlay h1 {
+        font-size: 24px;
       }
     }
   </style>
@@ -165,9 +209,68 @@
   </div>
 
   <div class="menu">
+
+    <!-- SERVICES DROPDOWN -->
+    <div class="dropdown">
+      <a href="#">Services</a>
+
+      <div class="dropdown-content">
+
+        <div class="dropdown-item">
+          <i class="fas fa-hospital"></i>
+          <div>
+            <strong>Healthcare</strong>
+            <p>AI for patient workflows and diagnostics.</p>
+          </div>
+        </div>
+
+        <div class="dropdown-item">
+          <i class="fas fa-building"></i>
+          <div>
+            <strong>Real Estate</strong>
+            <p>Automate leads and CRM processes.</p>
+          </div>
+        </div>
+
+        <div class="dropdown-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <strong>HR</strong>
+            <p>AI hiring and employee automation.</p>
+          </div>
+        </div>
+
+        <div class="dropdown-item">
+          <i class="fas fa-server"></i>
+          <div>
+            <strong>IT</strong>
+            <p>Automate deployments and monitoring.</p>
+          </div>
+        </div>
+
+        <div class="dropdown-item">
+          <i class="fas fa-headset"></i>
+          <div>
+            <strong>Customer Support</strong>
+            <p>AI chatbots and automation.</p>
+          </div>
+        </div>
+
+        <div class="dropdown-item">
+          <i class="fas fa-chart-line"></i>
+          <div>
+            <strong>Finance</strong>
+            <p>Fraud detection and reporting.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <a href="#products">Products</a>
     <a href="#solutions">Solutions</a>
     <a href="#about">About</a>
+
     <a href="#demo" class="btn">Request Demo</a>
   </div>
 </nav>
@@ -184,9 +287,9 @@
 <section class="section" id="products">
   <h2>Products</h2>
   <div class="cards">
-    <div class="card"><h3>AI Platform</h3><p>Automation platform.</p></div>
-    <div class="card"><h3>Chatbot Builder</h3><p>Create AI bots.</p></div>
-    <div class="card"><h3>Data Engine</h3><p>AI insights.</p></div>
+    <div class="card"><h3>AI Platform</h3></div>
+    <div class="card"><h3>Chatbot Builder</h3></div>
+    <div class="card"><h3>Data Engine</h3></div>
   </div>
 </section>
 
@@ -208,23 +311,14 @@
     <form action="https://formspree.io/f/YOURID" method="POST">
 
       <input type="text" name="name" placeholder="Your Name" required>
-
       <input type="email" name="email" placeholder="Your Email" required>
-
       <input type="text" name="company" placeholder="Company Name">
-
       <textarea name="message" placeholder="Your Requirement"></textarea>
 
       <button type="submit">Submit Request</button>
 
     </form>
   </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <h2>About Aixogen</h2>
-  <p>We help businesses automate workflows using AI.</p>
 </section>
 
 <footer>
