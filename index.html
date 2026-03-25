@@ -477,6 +477,57 @@
          text-align: center;
          padding: 20px;
          }
+
+   /* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.mobile-menu a {
+  padding: 12px 0;
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-btn {
+  background: #2563eb;
+  color: white !important;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* MOBILE ONLY */
+@media(max-width:768px){
+
+  .menu {
+    display: none; /* hide desktop menu */
+  }
+
+  .hamburger {
+    display: block; /* show ☰ */
+  }
+
+}
          /* MOBILE */
 @media(max-width:768px){
   nav {
@@ -513,6 +564,7 @@
             AIXOGEN
          </div>
          <div class="menu">
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <div class="dropdown">
                <a onclick="scrollToSection('services')">Services</a>
                <div class="dropdown-content">
@@ -549,7 +601,15 @@
             <a href="#about">About</a>
             <a href="#demo" class="btn">Request Demo</a>
          </div>
+         
       </nav>
+      <div class="mobile-menu" id="mobileMenu">
+  <a onclick="scrollToSection('services')">Services</a>
+  <a onclick="scrollToSection('products')">Products</a>
+  <a onclick="scrollToSection('solutions')">Solutions</a>
+  <a href="#about">About</a>
+  <a href="#demo" class="mobile-btn">Request Demo</a>
+</div>
       <!-- HERO -->
       <section class="hero">
          <div class="hero-overlay">
@@ -799,6 +859,16 @@
              behavior: 'smooth'
            });
          }
+
+function toggleMenu(){
+  const menu = document.getElementById("mobileMenu");
+
+  if(menu.style.display === "flex"){
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
          
          function scrollToSection(id){
   const el = document.getElementById(id);
