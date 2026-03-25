@@ -266,7 +266,59 @@
          justify-content: center;
          margin: 40px 0;
          }
-        
+
+         .solution-section {
+  padding: 60px 20px;
+}
+
+.solution-category {
+  margin: 30px 20px 10px;
+  color: #1e293b;
+  font-size: 18px;
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 20px;
+}
+
+.solution-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+}
+
+.solution-card i {
+  font-size: 26px;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.solution-card h4 {
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: #1e293b;
+}
+
+.solution-card p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .solution-grid {
+    grid-template-columns: 1fr;
+  }
+}
          /* IMAGE */
          .feature-image img {
          width: 320px;
@@ -384,9 +436,11 @@
             <div class="dropdown">
                <a onclick="scrollToSection('solutions')">Solutions</a>
                <div class="dropdown-content">
-                  <a onclick="goToSolution(0)">Customer Support Automation</a>
-                  <a onclick="goToSolution(1)">Sales Automation</a>
-                  <a onclick="goToSolution(2)">HR Automation</a>
+                  <a onclick="goToSolution(0)">Core Business Automation</a>
+                  <a onclick="goToSolution(1)">Finance & Risk</a>
+                  <a onclick="goToSolution(2)">Industry-Specific Solutions</a>
+                  <a onclick="goToSolution(3)">Operations & IT</a>
+                  <a onclick="goToSolution(4)">Growth & Intelligence</a> 
                </div>
             </div>
             <a href="#about">About</a>
@@ -438,7 +492,6 @@
                   <div class="card-content">
                      <h3>Customer Support</h3>
                      <p>Leverage intelligent automation to transform support operations with conversational AI, smart ticket routing, and real-time customer insights for superior service delivery.</p>
-                 <a href="customer-support.html" class="read-btn">Read More</a>
                   </div>
                </div>
                <div class="card">
@@ -536,46 +589,132 @@
     <button onclick="toggleText(this)">Read More</button>
     </div>
   </div>
+<!--SOLUTIONS-->
+<section id="solutions" class="solution-section">
+  <h2 style="padding-left:20px;">Our Solutions</h2>
+
+  <!-- CATEGORY 1 -->
+  <h3 class="solution-category">Core Business Automation</h3>
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <i class="fa-solid fa-robot"></i>
+      <h4>HR & Recruitment Automation</h4>
+      <p>Automate hiring, onboarding, and employee management workflows.</p>
+      <a href="hr-automation.html" class="read-btn">Read More →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-headset"></i>
+      <h4>Customer Support Automation</h4>
+      <p>AI chatbots and ticket automation for faster customer service.</p>
+      <a href="customer-support.html" class="read-btn">Read More →</a>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY 2 -->
+  <h3 class="solution-category">Finance & Risk</h3>
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <h4>Finance Automation</h4>
+      <p>Streamline accounting, reporting, and financial workflows.</p>
+      <a href="finance.html" class="read-btn">Read More →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h4>Fraud Detection & Risk Management</h4>
+      <p>Detect anomalies and prevent fraud with AI monitoring.</p>
+      <a href="fraud.html" class="read-btn">Read More →</a>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY 3 -->
+  <h3 class="solution-category">Industry Solutions</h3>
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <i class="fa-solid fa-hospital"></i>
+      <h4>Healthcare Automation</h4>
+      <p>Optimize patient workflows and clinical operations.</p>
+      <a href="healthcare.html" class="read-btn">Read More →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-building"></i>
+      <h4>Real Estate Automation</h4>
+      <p>Automate lead generation and client engagement.</p>
+      <a href="realestate.html" class="read-btn">Read More →</a>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY 4 -->
+  <h3 class="solution-category">Operations & IT</h3>
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <i class="fa-solid fa-server"></i>
+      <h4>IT Operations Automation</h4>
+      <p>Automate infrastructure monitoring and issue resolution.</p>
+      <a href="it.html" class="read-btn">Read More →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-gears"></i>
+      <h4>Process Optimization</h4>
+      <p>Improve efficiency by automating repetitive workflows.</p>
+      <a href="operations.html" class="read-btn">Read More →</a>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY 5 -->
+  <h3 class="solution-category">Growth & Intelligence</h3>
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <i class="fa-solid fa-bullhorn"></i>
+      <h4>Marketing Automation</h4>
+      <p>Personalize campaigns and automate customer engagement.</p>
+      <a href="marketing.html" class="read-btn">Read More →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-chart-pie"></i>
+      <h4>Business Intelligence</h4>
+      <p>Turn data into actionable insights using AI analytics.</p>
+      <a href="analytics.html" class="read-btn">Read More →</a>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY 6 (NEW ONE) -->
+  <h3 class="solution-category">Enterprise Integration</h3>
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <i class="fa-solid fa-link"></i>
+      <h4>System Integration Automation</h4>
+      <p>Connect multiple systems for seamless data flow.</p>
+      <a href="integration.html" class="read-btn">Read More →</a>
+    </div>
+
+    <div class="solution-card">
+      <i class="fa-solid fa-cloud"></i>
+      <h4>Cloud & AI Transformation</h4>
+      <p>Modernize infrastructure with scalable AI solutions.</p>
+      <a href="cloud.html" class="read-btn">Read More →</a>
+    </div>
+
+  </div>
 
 </section>
-      <!-- SOLUTIONS -->
-      <section class="services" id="solutions">
-         <h2 style="padding-left:20px;">Our Solutions</h2>
-         <div class="slider-wrapper">
-            <button class="arrow left" onclick="scrollSolution(-1)">❮</button>
-            <div class="slider" id="solution-slider">
-               <div class="card">
-                  <img src="support.png">
-                  <div class="card-content">
-                     <h3>Customer Support Automation</h3>
-                     <p>Automate customer interactions with AI chatbots and intelligent ticket routing systems.</p>
-                  </div>
-               </div>
-               <div class="card">
-                  <img src="sales.png">
-                  <div class="card-content">
-                     <h3>Sales Automation</h3>
-                     <p>Boost conversions with AI-driven lead scoring, automated follow-ups, and customer insights.</p>
-                  </div>
-               </div>
-               <div class="card">
-                  <img src="hrsolution.png">
-                  <div class="card-content">
-                     <h3>HR Automation</h3>
-                     <p>Streamline hiring, onboarding, and employee engagement with intelligent automation tools.</p>
-                  </div>
-               </div>
-               <div class="card">
-                  <img src="operations.png">
-                  <div class="card-content">
-                     <h3>Process Optimization</h3>
-                     <p>Identify inefficiencies and automate workflows to improve operational performance and reduce costs.</p>
-                  </div>
-               </div>
-            </div>
-            <button class="arrow right" onclick="scrollSolution(1)">❯</button>
-         </div>
-      </section>
+   
       <!-- DEMO -->
       <section class="section" id="demo">
          <h2>Request Demo</h2>
