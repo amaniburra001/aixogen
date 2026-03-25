@@ -228,19 +228,7 @@
          justify-content: center;
          margin: 40px 0;
          }
-         .feature-card {
-         width: 70%;
-         min-height: 260px;
-         display: flex;
-         gap: 30px;
-         padding: 30px;
-         /* PROFESSIONAL COLOR */
-         background: #1e293b; /* dark blue-grey */
-         color: white;
-         border-radius: 16px;
-         box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-         align-items: center;
-         }
+        
          /* IMAGE */
          .feature-image img {
          width: 320px;
@@ -436,9 +424,7 @@
             <button class="arrow right" onclick="scrollSlider(1)">❯</button>
          </div>
       </section>
-      <!-- PRODUCTS -->
-<div class="feature-wrapper">
-  <div class="carousel-track" id="product-track">
+<!-- PRODUCTS -->
 <section class="product-section" id="products">
   <h2 style="padding-left:20px;">Our Products</h2>
 
@@ -541,7 +527,6 @@
       </footer>
       <script>
          const slider = document.getElementById('slider');
-         const productSlider = document.getElementById('product-slider');
          const solutionSlider = document.getElementById('solution-slider');
          let productIndex = 0;
 
@@ -557,13 +542,15 @@ function moveProduct(direction){
   track.style.transform = `translateX(-${productIndex * 100}%)`;
 }
          
-         function scrollProduct(direction){
-           const cardWidth = document.querySelector('#product-slider .card').offsetWidth + 20;
-           productSlider.scrollBy({
-             left: direction * cardWidth,
-             behavior: 'smooth'
-           });
-         }
+       function goToProduct(index){
+         scrollToSection('products');
+
+         setTimeout(() => {
+            productIndex = index;
+            document.getElementById('product-track')
+            .style.transform = `translateX(-${index * 100}%)`;
+             }, 400);
+}
          
          function scrollSolution(direction){
            const cardWidth = document.querySelector('#solution-slider .card').offsetWidth + 20;
