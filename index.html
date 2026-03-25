@@ -162,48 +162,44 @@
   width: 100%;
 }
 
-/* ONE CARD PER VIEW */
-.feature-card {
-  min-width: 100%;   /* FULL WIDTH = ONLY 1 CARD */
-  max-width: 100%;
-  flex: 0 0 100%;    /* CRITICAL FIX */
+.product-section {
+  padding: 60px 0;
+}
 
+/* STACKED CARDS */
+.feature-card {
+  width: 70%;
+  margin: 40px auto;
   display: flex;
   gap: 30px;
-  padding: 40px;
+  padding: 30px;
 
   background: #1e293b;
   color: white;
-
   border-radius: 16px;
+
   align-items: center;
 }
-
-.feature-wrapper {
-  max-width: 1000px;
+.feature-card:nth-child(even) {
+  flex-direction: row-reverse;
 }
-         
-/* IMAGE LEFT */
+/* IMAGE */
 .feature-image img {
-  width: 250px;
+  width: 300px;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* CONTENT RIGHT */
+/* CONTENT */
 .feature-content {
   flex: 1;
 }
 
-.feature-content h3 {
-  margin-bottom: 10px;
-}
-
 .feature-content p {
   color: #cbd5e1;
+  line-height: 1.6;
 }
-
 /* READ MORE */
 .full-text {
   display: none;
@@ -261,17 +257,18 @@
          border-radius: 6px;
          cursor: pointer;
          }
-         @media(max-width:768px){
-         .feature-card {
-         width: 90%;
-         flex-direction: column;
-         text-align: center;
-         }
-         .feature-image img {
-         width: 100%;
-         height: 200px;
-         }
-         }
+      @media(max-width:768px){
+  .feature-card {
+    flex-direction: column;
+    width: 90%;
+    text-align: center;
+  }
+
+  .feature-image img {
+    width: 100%;
+  }
+}
+       
          /* ARROWS */
          .arrow {
          position: absolute;
@@ -340,13 +337,15 @@
                </div>
             </div>
             <div class="dropdown">
-               <a onclick="scrollToSection('products')">Products</a>
-               <div class="dropdown-content">
-                  <a onclick="goToProduct(0)">AI Platform</a>
-                  <a onclick="goToProduct(1)">Chatbot</a>
-                  <a onclick="goToProduct(2)">Predictive Analytics</a>
-               </div>
-            </div>
+  <a onclick="scrollToSection('products')">Products</a>
+  <div class="dropdown-content">
+    <a onclick="scrollToSection('product1')">AI Platform</a>
+    <a onclick="scrollToSection('product2')">Chatbot</a>
+    <a onclick="scrollToSection('product3')">Predictive Analytics</a>
+    <a onclick="scrollToSection('product4')">Workflow Automation</a>
+  </div>
+</div>
+      
             <div class="dropdown">
                <a onclick="scrollToSection('solutions')">Solutions</a>
                <div class="dropdown-content">
@@ -425,60 +424,61 @@
          </div>
       </section>
 <!-- PRODUCTS -->
-<section class="product-section" id="products">
+<section id="products" class="product-section">
   <h2 style="padding-left:20px;">Our Products</h2>
 
-  <div class="carousel">
-
-    <button class="arrow left" onclick="moveProduct(-1)">❮</button>
-
-    <div class="carousel-track" id="product-track">
-
-      <!-- CARD 1 -->
-      <div class="feature-card">
-        <div class="feature-image">
-          <img src="platform.png">
-        </div>
-        <div class="feature-content">
-          <h3>AI Automation Platform</h3>
-
-          <p class="short-text">
-            Centralized platform to design and manage AI workflows across business operations.
-          </p>
-
-          <p class="full-text">
-            Our AI automation platform empowers organizations to streamline complex workflows through intelligent automation. It integrates seamlessly with existing systems, enables real-time monitoring, and supports scalable operations across departments.
-          </p>
-
-          <button onclick="toggleText(this)">Read More</button>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="feature-card">
-        <div class="feature-image">
-          <img src="chatbot.png">
-        </div>
-        <div class="feature-content">
-          <h3>Conversational AI</h3>
-
-          <p class="short-text">
-            AI chatbots for customer engagement and automation.
-          </p>
-
-          <p class="full-text">
-            Our conversational AI solutions enable businesses to automate customer interactions with intelligent chatbots and voice assistants, improving engagement, reducing costs, and delivering seamless user experiences across channels.
-          </p>
-
-          <button onclick="toggleText(this)">Read More</button>
-        </div>
-      </div>
-
+  <!-- PRODUCT 1 -->
+  <div class="feature-card" id="product1">
+    <div class="feature-image">
+      <img src="platform.png">
     </div>
-
-    <button class="arrow right" onclick="moveProduct(1)">❯</button>
-
+    <div class="feature-content">
+      <h3>AI Automation Platform</h3>
+      <p>
+        Our AI automation platform enables businesses to design, deploy, and manage intelligent workflows across operations. It integrates seamlessly with existing systems, providing real-time insights and scalability for growing enterprises.
+      </p>
+    </div>
   </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="feature-card" id="product2">
+    <div class="feature-image">
+      <img src="chatbot.png">
+    </div>
+    <div class="feature-content">
+      <h3>Conversational AI</h3>
+      <p>
+        AI-powered chatbots and voice assistants that automate customer interactions, improve engagement, and deliver seamless support across web, mobile, and messaging platforms.
+      </p>
+    </div>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="feature-card" id="product3">
+    <div class="feature-image">
+      <img src="analytics.png">
+    </div>
+    <div class="feature-content">
+      <h3>Predictive Analytics</h3>
+      <p>
+        Leverage machine learning to forecast trends, understand customer behavior, and make proactive business decisions with data-driven insights.
+      </p>
+    </div>
+  </div>
+
+  <!-- PRODUCT 4 -->
+  <div class="feature-card" id="product4">
+    <div class="feature-image">
+      <img src="workflow.png">
+    </div>
+    <div class="feature-content">
+      <h3>Workflow Automation</h3>
+      <p>
+        Automate repetitive tasks, streamline operations, and improve productivity through intelligent process automation tools.
+      </p>
+    </div>
+  </div>
+
 </section>
       <!-- SOLUTIONS -->
       <section class="services" id="solutions">
