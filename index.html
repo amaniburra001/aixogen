@@ -870,7 +870,7 @@ AIXOGEN implements workflow automation solutions by analyzing your existing busi
       <i class="fa-solid fa-chart-line"></i>
       <h4>Finance & Risk Automation</h4>
       <p>Enhance financial operations with AI-driven analytics and fraud detection.</p>
-      <a href="finance.html" class="read-btn">Explore →</a>
+      <a href="finance-risk.html" class="read-btn">Explore →</a>
     </div>
 
     <div class="solution-card" id="industry">
@@ -966,7 +966,7 @@ AIXOGEN implements workflow automation solutions by analyzing your existing busi
       <p><strong>For any queries:</strong></p>
 
       <p>Email: support@aixogen.com</p>
-      <p>Mobile: +91 96181 68604</p>
+      <p>Mobile: +91 XXXXX XXXXX</p>
 
       <p style="margin-top:20px;">
         Our team will get back to you within 24 hours to assist with your requirements.
@@ -1082,6 +1082,8 @@ phoneInput.addEventListener("input", () => {
 
 form.addEventListener("submit", function(e){
   e.preventDefault(); // stop default redirect
+
+ const countryCode = countryCodeInput.value.trim();
   const mobile = mobileInput.value.trim();
 
   // Validation rules
