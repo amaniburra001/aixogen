@@ -4,18 +4,16 @@
   <title>Aixogen - AI Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
+      background: #eef1f5;
       color: #111;
     }
 
-    /* NAVBAR */
     nav {
       position: sticky;
       top: 0;
@@ -23,7 +21,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 20px 50px;
       border-bottom: 1px solid #eee;
       z-index: 1000;
     }
@@ -33,7 +31,6 @@
       align-items: center;
       font-size: 24px;
       font-weight: bold;
-      color: #111;
     }
 
     .logo img {
@@ -44,72 +41,25 @@
     .menu {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .menu a {
-      margin: 0 10px;
+      margin: 0 15px;
       text-decoration: none;
       color: #111;
-      font-size: 14px;
-    }
-
-    .menu a:hover {
-      color: #2563eb;
     }
 
     .btn {
       background: #2563eb;
       color: white;
-      padding: 8px 16px;
+      padding: 10px 16px;
       border-radius: 6px;
       text-decoration: none;
-      margin-left: 10px;
     }
 
-    /* DROPDOWN */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: white;
-      width: 320px;
-      padding: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-item {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .dropdown-item i {
-      color: #2563eb;
-      margin-top: 5px;
-    }
-
-    .dropdown-item strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .dropdown-item p {
-      font-size: 12px;
-      color: #555;
-    }
-
-    /* HERO (LOCAL IMAGE) */
-    .hero-image {
-      height: 450px;
+    /* HERO */
+    .hero {
+      height: 400px;
       background: url('background.png') center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -119,34 +69,64 @@
     .hero-overlay {
       background: rgba(0,0,0,0.5);
       padding: 30px;
+      color: white;
       border-radius: 10px;
       text-align: center;
-      color: white;
     }
 
-    .hero-overlay h1 {
-      font-size: 36px;
-    }
-
-    /* SECTIONS */
+    /* SLIDER */
     .section {
-      padding: 60px 40px;
+      padding: 60px 20px;
     }
 
-    .cards {
+    .slider-wrapper {
+      position: relative;
+    }
+
+    .slider {
       display: flex;
+      overflow-x: auto;
       gap: 20px;
-      flex-wrap: wrap;
+      scroll-behavior: smooth;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
     }
 
     .card {
-      flex: 1;
-      min-width: 250px;
+      min-width: 280px;
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      padding: 15px;
+    }
+
+    /* ARROWS */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .left { left: 0; }
+    .right { right: 0; }
 
     /* FORM */
     .form-container {
@@ -154,47 +134,31 @@
       background: white;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
     input, textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
     }
 
     button {
+      width: 100%;
       background: #2563eb;
       color: white;
       padding: 10px;
       border: none;
-      border-radius: 5px;
-      width: 100%;
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
       background: #111;
       color: white;
+      text-align: center;
+      padding: 20px;
     }
 
-    /* MOBILE */
-    @media(max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .cards {
-        flex-direction: column;
-      }
-
-      .hero-overlay h1 {
-        font-size: 24px;
-      }
+    @media(max-width:768px){
+      nav { flex-direction: column; }
     }
   </style>
 </head>
@@ -209,114 +173,95 @@
   </div>
 
   <div class="menu">
-
-    <!-- SERVICES DROPDOWN -->
-    <div class="dropdown">
-      <a href="#">Services</a>
-
-      <div class="dropdown-content">
-
-        <div class="dropdown-item">
-          <i class="fas fa-hospital"></i>
-          <div>
-            <strong>Healthcare</strong>
-            <p>AI for patient workflows and diagnostics.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-building"></i>
-          <div>
-            <strong>Real Estate</strong>
-            <p>Automate leads and CRM processes.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-users"></i>
-          <div>
-            <strong>HR</strong>
-            <p>AI hiring and employee automation.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-server"></i>
-          <div>
-            <strong>IT</strong>
-            <p>Automate deployments and monitoring.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-headset"></i>
-          <div>
-            <strong>Customer Support</strong>
-            <p>AI chatbots and automation.</p>
-          </div>
-        </div>
-
-        <div class="dropdown-item">
-          <i class="fas fa-chart-line"></i>
-          <div>
-            <strong>Finance</strong>
-            <p>Fraud detection and reporting.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+    <a href="#services">Services</a>
     <a href="#products">Products</a>
     <a href="#solutions">Solutions</a>
     <a href="#about">About</a>
-
     <a href="#demo" class="btn">Request Demo</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero-image">
+<section class="hero">
   <div class="hero-overlay">
     <h1>AI Automation for Modern Businesses</h1>
-    <p>We help companies automate operations using AI.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <h2>Services</h2>
+
+  <div class="slider-wrapper">
+    <button class="arrow left" onclick="scrollSlider('services-slider',-1)">❮</button>
+
+    <div class="slider" id="services-slider">
+      <div class="card"><img src="https://images.unsplash.com/photo-1588776814546"><h3>Healthcare</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1560518883"><h3>Real Estate</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1551434678"><h3>HR</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1518770660439"><h3>IT</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1581091012184"><h3>Support</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1554224155"><h3>Finance</h3></div>
+    </div>
+
+    <button class="arrow right" onclick="scrollSlider('services-slider',1)">❯</button>
   </div>
 </section>
 
 <!-- PRODUCTS -->
 <section class="section" id="products">
   <h2>Products</h2>
-  <div class="cards">
-    <div class="card"><h3>AI Platform</h3></div>
-    <div class="card"><h3>Chatbot Builder</h3></div>
-    <div class="card"><h3>Data Engine</h3></div>
+
+  <div class="slider-wrapper">
+    <button class="arrow left" onclick="scrollSlider('products-slider',-1)">❮</button>
+
+    <div class="slider" id="products-slider">
+      <div class="card"><img src="https://images.unsplash.com/photo-1555949963"><h3>AI Platform</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1550751827"><h3>Chatbot Builder</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1519389950473"><h3>Data Engine</h3></div>
+    </div>
+
+    <button class="arrow right" onclick="scrollSlider('products-slider',1)">❯</button>
   </div>
 </section>
 
 <!-- SOLUTIONS -->
 <section class="section" id="solutions">
   <h2>Solutions</h2>
-  <div class="cards">
-    <div class="card"><h3>Customer Experience</h3></div>
-    <div class="card"><h3>Sales Automation</h3></div>
-    <div class="card"><h3>Operations</h3></div>
+
+  <div class="slider-wrapper">
+    <button class="arrow left" onclick="scrollSlider('solutions-slider',-1)">❮</button>
+
+    <div class="slider" id="solutions-slider">
+      <div class="card"><img src="https://images.unsplash.com/photo-1526378722484"><h3>Customer Experience</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1556740738"><h3>Sales Automation</h3></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1504384308090"><h3>Operations</h3></div>
+    </div>
+
+    <button class="arrow right" onclick="scrollSlider('solutions-slider',1)">❯</button>
   </div>
 </section>
 
-<!-- DEMO FORM -->
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2>About Aixogen</h2>
+  <p>
+    Aixogen is an AI automation company helping businesses streamline operations,
+    improve efficiency, and scale using intelligent AI systems.
+  </p>
+</section>
+
+<!-- DEMO -->
 <section class="section" id="demo">
-  <h2>Request a Demo</h2>
+  <h2>Request Demo</h2>
 
   <div class="form-container">
     <form action="https://formspree.io/f/YOURID" method="POST">
-
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="company" placeholder="Company Name">
-      <textarea name="message" placeholder="Your Requirement"></textarea>
-
-      <button type="submit">Submit Request</button>
-
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="company" placeholder="Company">
+      <textarea name="message" placeholder="Requirement"></textarea>
+      <button type="submit">Submit</button>
     </form>
   </div>
 </section>
@@ -324,6 +269,15 @@
 <footer>
   © 2026 Aixogen
 </footer>
+
+<script>
+function scrollSlider(id, dir) {
+  document.getElementById(id).scrollBy({
+    left: dir * 300,
+    behavior: 'smooth'
+  });
+}
+</script>
 
 </body>
 </html>
