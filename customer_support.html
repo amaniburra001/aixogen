@@ -1,1 +1,239 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Automation Solution</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #f8fafc, #eef2ff);
+  color: #1e293b;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #2563eb, #1e293b);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* CONTAINER */
+.container {
+  width: 70%;
+  margin: 60px auto;
+}
+
+/* GLASS CARD */
+.section {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.3);
+
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+}
+
+/* HEADINGS */
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.section p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* FEATURES GRID */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.feature-box {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 500;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* IMPACT CARD */
+.impact {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.cta a {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.demo-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.demo-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+
+.pdf-btn {
+  background: white;
+  color: #1e293b;
+  border: 1px solid #cbd5f5;
+}
+
+.pdf-btn:hover {
+  background: #f1f5f9;
+}
+
+/* SCROLL ANIMATION */
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .container {
+    width: 90%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>HR & Recruitment Automation</h1>
+  <p>Transform hiring and employee management with AI-driven automation</p>
+</section>
+
+<div class="container">
+
+  <div class="section">
+    <h2>What is this solution?</h2>
+    <p>
+      Our AI-powered HR automation solution transforms the entire recruitment lifecycle,
+      enabling organizations to hire faster, smarter, and more efficiently while eliminating repetitive manual tasks.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>What exactly do we provide?</h2>
+    <p>
+      We provide intelligent resume screening, AI-based candidate matching, automated interview scheduling,
+      onboarding workflows, and employee support chatbots — all in one integrated platform.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>How does it help your business?</h2>
+    <p>
+      This solution reduces hiring time drastically, enhances candidate experience,
+      and allows HR teams to focus on strategic growth instead of administrative tasks.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>What problems does it solve?</h2>
+    <p>
+      Eliminates manual resume filtering, delays in hiring, inconsistent evaluations,
+      and inefficient onboarding processes.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature-box">🤖 AI Resume Screening</div>
+      <div class="feature-box">📅 Automated Scheduling</div>
+      <div class="feature-box">💬 HR Chatbot Assistant</div>
+      <div class="feature-box">⚙️ Onboarding Automation</div>
+    </div>
+  </div>
+
+  <div class="section impact">
+    <h2>Business Impact</h2>
+    <p>
+      Reduce hiring costs by 40%, improve efficiency by 60%, and enhance employee experience
+      with faster and smarter HR processes.
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a href="demo.html" class="demo-btn">🚀 Book a Demo</a>
+    <a href="hr-solution.pdf" target="_blank" class="pdf-btn">📄 Download Brochure</a>
+  </div>
+
+</div>
+
+<script>
+// Scroll animation
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
