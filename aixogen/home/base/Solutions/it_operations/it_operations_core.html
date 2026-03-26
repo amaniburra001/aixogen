@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Operations & IT Automation - AIXOGEN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef1f5;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo img {
+      height: 35px;
+      margin-right: 10px;
+    }
+
+    .demo-btn {
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e40af);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .solution-block {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: center;
+    }
+
+    .solution-block.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .solution-image img {
+      width: 400px;
+      border-radius: 12px;
+    }
+
+    .solution-content h2 {
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .solution-content p {
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: #e2e8f0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    @media(max-width:768px){
+      .solution-block {
+        flex-direction: column;
+      }
+
+      .solution-block.reverse {
+        flex-direction: column;
+      }
+
+      .solution-image img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="aixogen_logo.png"> AIXOGEN
+  </div>
+
+  <a href="index.html#demo" class="demo-btn">Request Demo</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Operations & IT Automation</h1>
+  <p>Optimizing IT systems and operational workflows through intelligent automation</p>
+</div>
+
+<div class="section">
+
+  <!-- IT OPERATIONS -->
+  <div class="solution-block">
+    <div class="solution-image">
+      <img src="IT.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>IT Operations Automation</h2>
+
+      <p>
+        IT teams often manage repetitive tasks such as system monitoring, incident handling, and infrastructure maintenance. Manual processes lead to slower response times, increased downtime, and inefficiencies in system management.
+      </p>
+
+      <p>
+        Automation introduces intelligent monitoring systems that detect anomalies, trigger alerts, and initiate automated responses to incidents in real time.
+      </p>
+
+      <p>
+        Implementation involves integrating automation tools with IT infrastructure, enabling proactive monitoring and automated issue resolution without manual intervention.
+      </p>
+
+      <p>
+        This ensures improved system reliability, reduced downtime, and enhanced IT operational efficiency.
+      </p>
+
+      <div class="stats">
+        <div class="stat">60% Faster Incident Resolution</div>
+        <div class="stat">Reduced Downtime</div>
+        <div class="stat">Proactive Monitoring</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROCESS AUTOMATION -->
+  <div class="solution-block reverse">
+    <div class="solution-image">
+      <img src="workflow_automation.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>Business Process Automation</h2>
+
+      <p>
+        Operational workflows across departments often involve manual coordination, approvals, and repetitive tasks that slow down execution and reduce efficiency.
+      </p>
+
+      <p>
+        Automation streamlines business processes by creating intelligent workflows that handle approvals, task assignments, and data processing automatically.
+      </p>
+
+      <p>
+        The solution integrates with enterprise systems to ensure seamless workflow execution across departments.
+      </p>
+
+      <p>
+        This results in faster operations, reduced errors, and improved productivity across the organization.
+      </p>
+
+      <div class="stats">
+        <div class="stat">50% Faster Processes</div>
+        <div class="stat">Reduced Errors</div>
+        <div class="stat">Higher Efficiency</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLOUD AUTOMATION -->
+  <div class="solution-block">
+    <div class="solution-image">
+      <img src="cloud.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>Cloud & Infrastructure Automation</h2>
+
+      <p>
+        Managing cloud environments and infrastructure manually can lead to inefficiencies, higher costs, and limited scalability.
+      </p>
+
+      <p>
+        Automation enables dynamic resource provisioning, monitoring, and scaling of cloud infrastructure based on real-time demand.
+      </p>
+
+      <p>
+        Implementation includes integrating automation with cloud platforms to optimize resource utilization and improve system performance.
+      </p>
+
+      <p>
+        This ensures cost optimization, scalability, and efficient infrastructure management.
+      </p>
+
+      <div class="stats">
+        <div class="stat">30% Cost Optimization</div>
+        <div class="stat">Auto Scaling</div>
+        <div class="stat">Improved Performance</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DATA OPERATIONS -->
+  <div class="solution-block reverse">
+    <div class="solution-image">
+      <img src="analytics.png">
+    </div>
+
+    <div class="solution-content">
+      <h2>Data Operations Automation</h2>
+
+      <p>
+        Organizations generate large volumes of data that require processing, validation, and analysis. Manual handling of data leads to delays and inaccuracies.
+      </p>
+
+      <p>
+        Automation enables real-time data processing, validation, and integration across systems, ensuring data consistency and reliability.
+      </p>
+
+      <p>
+        The solution implements data pipelines that automate data flow, transformation, and reporting.
+      </p>
+
+      <p>
+        This improves decision-making capabilities and ensures accurate, timely insights for business operations.
+      </p>
+
+      <div class="stats">
+        <div class="stat">Real-time Processing</div>
+        <div class="stat">Improved Accuracy</div>
+        <div class="stat">Faster Insights</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
