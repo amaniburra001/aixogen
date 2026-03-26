@@ -21,6 +21,7 @@
       border-bottom: 1px solid #eee;
     }
 
+    
     .logo {
       display: flex;
       align-items: center;
@@ -117,7 +118,38 @@
         width: 100%;
       }
     }
+@media(max-width:768px){
 
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .menu {
+    display: none !important; /* hide desktop menu */
+  }
+
+  .btn {
+    display: block;
+    margin-left: auto;   /* 👈 pushes button to right */
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .hamburger {
+    display: none; /* ❌ hide hamburger if not needed */
+  }
+
+}
   </style>
 </head>
 
