@@ -12,15 +12,24 @@
     }
 
     /* NAVBAR */
+   
     nav {
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      border-bottom: 1px solid #eee;
-    }
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #eee;
+  z-index: 10000;   /* 👈 important */
+}
+body {
+  margin: 0;
+  padding-top: 70px;   /* adjust to your navbar height */
+}
     
     .logo {
       display: flex;
@@ -49,7 +58,15 @@
       padding: 80px 20px;
       text-align: center;
     }
-
+@media(max-width:768px){
+  nav {
+    position: fixed;   /* 👈 repeat to be safe */
+    top: 0;
+  }
+}
+    * {
+  box-sizing: border-box;
+}
     .hero h1 {
       font-size: 36px;
     }
@@ -130,7 +147,7 @@
   .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
   }
 
   .menu {
