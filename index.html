@@ -12,7 +12,7 @@
          }
          body {
          margin: 0;
-         padding-top: 80px;
+         padding-top: 75px;
          font-family: 'Segoe UI', sans-serif;
          background: #eef1f5;
          color: #111;
@@ -544,7 +544,9 @@
   display: none;
   font-size: 26px;
   cursor: pointer;
+   margin-left: auto;   /* 👈 keeps it right */
 }
+
 #about {
   max-width: 900px;
   margin: auto;
@@ -568,13 +570,13 @@
   display: none;
   flex-direction: column; /* ✅ THIS FIXES IT */
   background: white;
-  position: absolute;
+  position: fixed;
   top: 70px;
   left: 0;
   width: 100%;
   padding: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  z-index: 999;
+  z-index: 9999;
 }
 
 .mobile-menu.active {
@@ -601,6 +603,12 @@
   margin-top: 10px;
   padding: 10px;
 }
+.dropdown-content {
+  z-index: 9999;
+}
+section {
+  scroll-margin-top: 80px;
+}
 
 /* MOBILE ONLY */
 @media(max-width:768px){
@@ -620,7 +628,7 @@
   nav {
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 15px;
+    padding: 12px 20px;
   }
 
   .menu {
@@ -641,11 +649,6 @@
 }
 html, body {
   overflow-x: hidden;
-}
-
-.hamburger {
-  position: absolute;
-  right: 20px;
 }
 
   .menu a {
