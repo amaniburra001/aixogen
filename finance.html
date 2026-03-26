@@ -11,14 +11,23 @@
       background: #eef1f5;
     }
 
-    nav {
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      border-bottom: 1px solid #eee;
-    }
+   nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #eee;
+  z-index: 10000;   /* 👈 important */
+}
+body {
+  margin: 0;
+  padding-top: 70px;   /* adjust to your navbar height */
+}
 
     .logo {
       display: flex;
@@ -45,6 +54,19 @@
       color: white;
       padding: 80px 20px;
       text-align: center;
+    }
+
+    @media(max-width:768px){
+  nav {
+    position: fixed;   /* 👈 repeat to be safe */
+    top: 0;
+  }
+}
+    * {
+  box-sizing: border-box;
+}
+    .hero h1 {
+      font-size: 36px;
     }
 
     .section {
@@ -107,7 +129,38 @@
         width: 100%;
       }
     }
+@media(max-width:768px){
 
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .menu {
+    display: none !important; /* hide desktop menu */
+  }
+
+  .btn {
+    display: block;
+    margin-left: auto;   /* 👈 pushes button to right */
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .hamburger {
+    display: none; /* ❌ hide hamburger if not needed */
+  }
+
+}
   </style>
 </head>
 
@@ -133,7 +186,7 @@
   <!-- 1 FINANCIAL PROCESS AUTOMATION -->
   <div class="solution-block">
     <div class="solution-image">
-      <img src="finance.png">
+      <img src="financial_auto.png">
     </div>
 
     <div class="solution-content">
@@ -167,7 +220,7 @@
   <!-- 2 FRAUD DETECTION -->
   <div class="solution-block reverse">
     <div class="solution-image">
-      <img src="security.png">
+      <img src="fraud_det.png">
     </div>
 
     <div class="solution-content">
@@ -201,7 +254,7 @@
   <!-- 3 COMPLIANCE -->
   <div class="solution-block">
     <div class="solution-image">
-      <img src="compliance.png">
+      <img src="regulatory.png">
     </div>
 
     <div class="solution-content">
@@ -235,7 +288,7 @@
   <!-- 4 FINANCIAL ANALYTICS -->
   <div class="solution-block reverse">
     <div class="solution-image">
-      <img src="analytics.png">
+      <img src="financial_analytics.png">
     </div>
 
     <div class="solution-content">
