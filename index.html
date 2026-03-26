@@ -607,9 +607,6 @@
 .dropdown-content {
   z-index: 9999;
 }
-section {
-  scroll-margin-top: 80px;
-}
 
 /* MOBILE ONLY */
 @media(max-width:768px){
@@ -1089,8 +1086,18 @@ document.addEventListener("click", function(event) {
 
 function scrollToSection(id){
   const el = document.getElementById(id);
-  if(el){
-    el.scrollIntoView({ behavior: "smooth" });
+  const nav = document.querySelector("nav");
+
+  if(el && nav){
+    const offset = nav.offsetHeight;
+
+    const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - offset - 10; // small spacing
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
   }
 }
          
