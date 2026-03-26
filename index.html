@@ -18,8 +18,10 @@
          }
          /* NAVBAR */
          nav {
-         position: sticky;
+         position: fixed;
          top: 0;
+         left: 0;
+         width: 100%; 
          background: white;
          display: flex;
          justify-content: space-between;
@@ -48,7 +50,7 @@
          margin: 0 21px;
          text-decoration: none;
          color: #111;
-         font-size: 30px;   /* 🔥 Increased */
+         font-size: 20px;   /* 🔥 Increased */
          font-weight: 500;  /* Makes it more professional */
          }
          .menu a:hover {
@@ -58,8 +60,8 @@
          .btn {
          background: #2563eb;
          color: white;
-         padding: 12px30px;   
-         font-size: 30px; 
+         padding: 12px 24px;   
+         font-size: 20px; 
          border-radius: 15px;
          text-decoration: none;
          }
@@ -1069,6 +1071,17 @@ document.addEventListener("click", function(event) {
     menu.classList.remove("active");
   }
 });
+
+function adjustBodyPadding() {
+  const navbar = document.querySelector("nav");
+  document.body.style.paddingTop = navbar.offsetHeight + "px";
+}
+
+// Run on load
+window.addEventListener("load", adjustBodyPadding);
+
+// Run on resize (important for mobile)
+window.addEventListener("resize", adjustBodyPadding);
 
 function scrollToSection(id){
   const el = document.getElementById(id);
