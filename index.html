@@ -566,6 +566,39 @@
   padding: 10px;
   border-radius: 6px;
 }
+#chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 9999;
+}
+
+#chat-header {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+}
+
+#chat-body {
+  height: 220px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#chat-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-top: 1px solid #eee;
+  outline: none;
+}
 /* MOBILE MENU */
 .mobile-menu {
   display: none;
@@ -672,6 +705,11 @@ html, body {
 }
       </style>
    </head>
+   <div id="chatbot">
+  <div id="chat-header">AIXOGEN AI</div>
+  <div id="chat-body"></div>
+  <input id="chat-input" placeholder="Ask about AI automation..." />
+</div>
    <body>
       <!-- NAVBAR -->
       <nav>
@@ -1065,6 +1103,31 @@ const iti = window.intlTelInput(phoneInput, {
              behavior: 'smooth'
            });
          }
+
+const input = document.getElementById("chat-input");
+const body = document.getElementById("chat-body");
+
+input.addEventListener("keypress", async function(e){
+  if(e.key === "Enter"){
+    const message = input.value;
+
+    body.innerHTML += `<div><b>You:</b> ${message}</div>`;
+    input.value = "";
+
+    const res = await fetch("http://localhost:3000/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+
+    body.innerHTML += `<div><b>AI:</b> ${data.reply}</div>`;
+    body.scrollTop = body.scrollHeight;
+  }
+});
 
 function toggleMenu(){
   const menu = document.getElementById("mobileMenu");
