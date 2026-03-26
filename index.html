@@ -1114,20 +1114,30 @@ input.addEventListener("keypress", async function(e){
     body.innerHTML += `<div><b>You:</b> ${message}</div>`;
     input.value = "";
 
-    const res = await fetch("http://localhost:3000/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message })
-    });
+    try {
+      const res = await fetch("http://localhost:3000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    body.innerHTML += `<div><b>AI:</b> ${data.reply}</div>`;
-    body.scrollTop = body.scrollHeight;
+      body.innerHTML += `<div><b>AI:</b> ${data.reply}</div>`;
+      body.scrollTop = body.scrollHeight;
+
+    } catch (error) {
+      body.innerHTML += `<div style="color:red;"><b>Error:</b> Cannot connect to AI server</div>`;
+      console.error(error);
+    }
   }
 });
+
+
+
+         
 
 function toggleMenu(){
   const menu = document.getElementById("mobileMenu");
