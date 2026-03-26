@@ -1115,7 +1115,7 @@ input.addEventListener("keypress", async function(e){
     input.value = "";
 
     try {
-      const res = await fetch("http://localhost:3000/chat", {
+      const res = await fetch("https://aixogen-chatbot-3.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
