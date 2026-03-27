@@ -1095,7 +1095,9 @@ AIXOGEN implements workflow automation solutions by analyzing your existing busi
       <p><strong>For any queries:</strong></p>
 
       <p>Email: support@aixogen.com</p>
+      <p>support@aixogen.com</p>
       <p>Mobile: +91 96181 68604</p>
+      <p>+91 96181 68604</p>
 
       <p style="margin-top:20px;">
         Our team will get back to you within 24 hours to assist with your requirements.
@@ -1276,6 +1278,20 @@ form.addEventListener("submit", function(e){
     window.addEventListener("load", onLoad);
   }
 })();
+      
+let lastHiddenTime = 0;
+
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    lastHiddenTime = Date.now();
+  } else {
+    const inactiveTime = Date.now() - lastHiddenTime;
+
+    if (inactiveTime > 600000) { // 10 seconds
+      location.reload();
+    }
+  }
+});
 </script>
    </body>
 </html>
