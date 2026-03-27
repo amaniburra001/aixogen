@@ -270,11 +270,33 @@
 .full-text {
   display: none;
 }
+
 @media(max-width:768px){
+
   .demo-container {
     flex-direction: column;
-     padding: 0 15px;   /* 👈 prevents overflow */
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
   }
+
+  .demo-form,
+  .contact-info {
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+}
+@media(max-width:768px){
+
+  .demo-form input,
+  .demo-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
 }
          
 /* ARROWS */
@@ -544,9 +566,17 @@
 @media(max-width:768px){
 
   .form-row {
-    flex-direction: column;   /* 👈 stack inputs */
-    gap: 10px;
+    flex-direction: column;
+    width: 100%;
   }
+
+}
+@media(max-width:768px){
+
+  .demo-form button {
+    width: 100%;
+  }
+
 }
          * {
   box-sizing: border-box;
